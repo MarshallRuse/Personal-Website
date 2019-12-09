@@ -492,7 +492,7 @@ const HomePage = () => {
                                         Rover Follower
                                     </Typography>
                                     <Typography variant='caption' className={classes.captionText}>
-                                        <em>Python, Java, TCP Socket Communication</em> 
+                                        <em>Python, NumPy, Matplotlib, Java, TCP Socket Communication</em> 
                                     </Typography>
                                     <Typography>
                                         Have one or more simulated rovers autonomously follow a leader rover

@@ -456,11 +456,11 @@ const TripTrackerPage = () => {
                                 The React front-end primarily utilized components from <strong>Material UI</strong>, a component library implementing Google’s Material Design visual language.  
                                 Where components need more custom styling, Material UI’s supported <strong>JSS</strong> styling solutions are used.  
                                 The front-end makes liberal use of <strong>React Hooks</strong> and <strong>React’s Context API</strong> to allow most components written by myself to remain as decoupled, light-weight functional components.  
-                                <em>Trip Tracker</em> is a <strong>single-page application</strong>, as it uses <strong>React Router</strong> as its routing solution, only fetching the index html page on initial loading.
+                                <em>Trip Tracker</em> is a <strong>single-page application</strong>, as it uses <strong>React Router</strong> as its routing solution, only fetching the index HTML page on initial loading.
                                 <br />
                                 <br />
                                 The app makes use of <strong>Google Maps Javascript API Autocomplete </strong> library to search for the location of the user’s expense, and autofills the locations section of the form after a Place Details request.  
-                                The app also uses the <strong>Exchangeratesapi.io</strong> to fetch conversion rates between two currencies for the particular date specified for the expense, as well as for the Expenses Summary.
+                                The app also uses the <strong>Exchangeratesapi.io API</strong> to fetch conversion rates between two currencies for the particular date specified for the expense, as well as for the Expenses Summary.
                             </Typography>
                             <Typography variant='h6' align='center' className={classes.pageText}>Back-End</Typography>
                             <Typography variant='body1' className={classes.pageText}>

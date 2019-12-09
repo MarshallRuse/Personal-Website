@@ -350,12 +350,13 @@ const WorkoutLoggerPage = () => {
                                 </li>
                                 <li>
                                     <Typography variant='body1' className={classes.listText}>
-                                        Visualize your progress with each exercise , by One-Rep Max or by total volume.
+                                        Visualize your progress with each exercise, by One-Rep Max or by total volume.
                                     </Typography>
                                 </li>
                                 <li>
                                     <Typography variant='body1' className={classes.listText}>
-                                        Sort by most and least used exercises per muscle-group to see which are your favourite exercises, and how to add some var your workout.
+                                        Sort by most and least used exercises per muscle-group to see which are your favourite exercises, 
+                                        and how to add some variation to your workouts.
                                     </Typography>
                                 </li>
                                 <li>
@@ -408,12 +409,12 @@ const WorkoutLoggerPage = () => {
                                 Where components need more custom styling, Material UI’s supported <strong>JSS</strong> styling solutions are used.  
                                 The front-end combines the use of Reacts traditional class structure (for the pages) and <strong>React Hooks</strong> for the more elemental components. <strong>React’s Context API</strong> is used for routing flags and to provide
                                 lateral communication amongst nested components.  
-                                <em>Workout Logger</em> is a <strong>single-page application</strong>, as it uses <strong>React Router</strong> as its routing solution, only fetching the index html page on initial loading.
+                                <em>Workout Logger</em> is a <strong>single-page application</strong>, as it uses <strong>React Router</strong> as its routing solution, only fetching the index HTML page on initial loading.
                                 <br />
                             </Typography>
                             <Typography variant='h6' align='center' className={classes.pageText}>Back-End</Typography>
                             <Typography variant='body1' className={classes.pageText}>
-                                The back-end is a bare-bones<strong>Node.js</strong> server that returns the index.html file from any location, making <em>Workout Logger</em> 
+                                The back-end is a bare-bones <strong>Node.js</strong> server that returns the index.html file from any location, making <em>Workout Logger </em> 
                                 a single-page application.  
                                 Google's <strong>Firebase</strong> web and mobile development service is used for the authentication middleware, and for storage via their <strong>Cloud Firestore</strong> service.  
                                 The services are interacted with directly from the front-end, with the component pages and elements using Firebase's web and mobile client SDK.  
@@ -426,7 +427,7 @@ const WorkoutLoggerPage = () => {
                                 >
                                     &nbsp;described by the Firestore documentation
                                 </a>, depending on which pattern makes contextual sense.  For instance, all collections
-                                are subcollections of the particular <em>user</em> documents to which they are assigned, and <em>sets</em> are subcollections of the <em>exercise instances</em>
+                                are subcollections of the particular <em>user</em> documents to which they are assigned, and <em>sets</em> are subcollections of the <em>exercise instances </em>
                                 to which they are assigned, but <em>workouts</em>, <em>exercises</em>, and <em>exercise instances</em> are root-level collections that refer to 
                                 each other for ease of access and manipulation.  
                             </Typography>

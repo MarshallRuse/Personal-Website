@@ -292,7 +292,7 @@ const RoverPage = () => {
                             src={RoverFollowerPoster} 
                             alt='Rover Poster'
                             style={{width: '100%'}}
-                            onClick={() => handleImageClicked('RoverPoster', 'Rover Poster')}
+                            onClick={() => handleImageClicked('RoverFollowerPoster', 'Rover Poster')}
                         />
                                       
                         </Paper>
@@ -325,13 +325,13 @@ const RoverPage = () => {
                                 </a>
                                 &nbsp; can be found here.  
                                 <br />The TL;DR is that the autonomous following function is run by a class-based Python
-                                program, in which each Rover is assigned a data-collection <em>Rover</em>class, and each pair of these 
-                                classes reports to a <em>Supervisor</em> class, which coordinates the response based on their relative positions.
+                                program, in which each Rover is assigned a data-collection <em> Rover </em>class, and each pair of these 
+                                classes reports to a <em>Supervisor</em> class, which coordinates the response based on their relative positions and velocities.
                                 It sends instructions back to the Follower, directing it to stay at a precise distance from its leader.  Sensory 
-                                input and communication is achieved through a TCP Socket communication protocol. 
+                                input and communication is achieved through a <strong>TCP Socket communication</strong> protocol. 
                                 This structure can be daisy-chained to an arbitrary number of leader-follower pairs, resulting in autonomous 
                                 convoy behaviour.  Tracking and post-run analysis classes were also made to monitor the performance of the pairs, the data from 
-                                which was processed via the <em>Numpy</em> library, with <em>Matplotlib</em> visualiztions.  
+                                which was processed via the <strong>NumPy</strong> library, with <strong>Matplotlib</strong> visualiztions.  
                             </Typography>
                         </Paper>
                         <div className={classes.toolbar} />
