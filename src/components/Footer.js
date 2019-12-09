@@ -9,7 +9,11 @@ const useStyles = makeStyles(theme => ({
     footer: {
         backgroundColor: theme.palette.background.paper,
         padding: theme.spacing(6),
-    }
+    },
+    link: {
+        color: 'inherit',
+        textDecoration: 'none',
+    },
 }));
 
 const Footer = () => {
@@ -20,9 +24,14 @@ const Footer = () => {
         return (
           <Typography variant="body2" color="textSecondary" align="center">
             {'Copyright © '}
-            <Link color="inherit" href="https://material-ui.com/">
-              Marshall Ruse
-            </Link>{' '}
+            <a 
+                href='https://www.linkedin.com/in/marshall-ruse-2b957a13b/' 
+                target='_blank'
+                rel="noopener noreferrer"
+                className={classes.link}
+            >
+              Marshall Ruse &nbsp;
+            </a>
             {new Date().getFullYear()}
             {'.'}
           </Typography>
@@ -31,12 +40,6 @@ const Footer = () => {
 
     return (
         <footer className={classes.footer}>
-            <Typography variant="h6" align="center" gutterBottom>
-                Footer
-            </Typography>
-            <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-                Something here to give the footer a purpose!
-            </Typography>
             <Copyright />
         </footer>
     );
