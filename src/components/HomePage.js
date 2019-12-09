@@ -49,6 +49,8 @@ const useStyles = makeStyles(theme => ({
         padding: '10px',
     },
     buttonBaseRoot: {
+        alignItems: 'flex-start',
+        boxShadow: 'none',
         display: 'flex',
         flexGrow: 1
     },
@@ -70,7 +72,7 @@ const useStyles = makeStyles(theme => ({
         paddingBottom: theme.spacing(8)
     },
     cardMedia: {
-        paddingTop: '56.25%', // 16:9
+        paddingTop: '62.25%',
     },
     cardContent: {
         flexGrow: 1,
@@ -343,7 +345,7 @@ const HomePage = () => {
                                 />
                                 <CardContent className={classes.cardContent}>
                                     <Typography gutterBottom variant="h5" component="h2">
-                                        Fitness Journal (Mobile, In Progress)
+                                        Workout Logger (Mobile, In Progress)
                                     </Typography>
                                     <Typography variant='caption' className={classes.captionText}>
                                         <em>React, React Hooks, Material-UI, Firebase Authentication,
@@ -397,7 +399,7 @@ const HomePage = () => {
                                         <em>React, React Hooks, Material-UI, Express, 
                                         MongoDB, Mongoose, Google Places API</em> 
                                     </Typography>
-                                    <Typography variant='body2'>
+                                    <Typography>
                                         Add expenses in over 30 currencies. Convert between them with date-accurate 
                                         conversion rates. Summarize your trip expenses by date, category, city, and country.
                                     </Typography>
@@ -525,9 +527,16 @@ const HomePage = () => {
                             </Typography>
                         </CardContent>
                         <CardActions className={classes.cardActions}>
-                            <Button size="small" color="primary">
-                                Source
-                            </Button>
+                            <a 
+                                href='https://github.com/MarshallRuse/Personal-Website'
+                                target='_blank'
+                                rel='noopener noreferrer' 
+                                className={classes.link}
+                            >
+                                <Button size="small" color="primary">
+                                    Source
+                                </Button>
+                            </a>
                         </CardActions>
                     </Card>
                 </Grid>
