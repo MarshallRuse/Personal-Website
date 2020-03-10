@@ -15,6 +15,9 @@ import {
  } from '@material-ui/core';
  import { GitHub, LinkedIn } from '@material-ui/icons';
 
+ import HeaderPhoto from './elements/HeaderPhoto';
+ import AnimatedIcon from './elements/AnimatedIcon';
+
 // Logos
 import { makeStyles } from '@material-ui/core/styles';
 import Img from 'react-image';
@@ -43,6 +46,8 @@ import BingoPartyHomePage from '../assets/images/BingoParty/BingoPartyHomePage.p
 import RoverFollowerMultipleFollowers from '../assets/images/RoverFollower/RoverFollowerMultipleFollowers.png'
 import PersonalWebsite from '../assets/images/HomePage/PersonalWebsite.png';
 
+
+console.log("Southern Ontario: ", SouthernOntario)
 const useStyles = makeStyles(theme => ({
     aboutMeParagraph: {
         color: '#4e4e4e',
@@ -100,6 +105,10 @@ const useStyles = makeStyles(theme => ({
     link: {
         color: 'inherit',
         textDecoration: 'none',
+    },
+    logoBox: {
+        display: 'flex',
+        flexDirection: 'column'
     },
     logoImg: {
         height: 'auto',
@@ -168,7 +177,7 @@ const HomePage = () => {
             </div>
             <Grid container justify='center' alignItems='center'>
                 <Grid item xs={6} sm={4}>
-                    <Img src={PictureOfMe} className={classes.profilePicture}/>
+                    <HeaderPhoto />
                 </Grid>
             </Grid>
             <Typography component="h1" variant="h2" align="center" color="inherit" gutterBottom>
@@ -177,7 +186,7 @@ const HomePage = () => {
             <Typography variant="body1" align="left" color="inherit" paragraph>
                 &nbsp;&nbsp;&nbsp;&nbsp;Hello, I’m Marshall. 
               I'm an aspiring web and mobile developer in the Greater Toronto Area.  
-              <br />&nbsp;&nbsp;&nbsp;&nbsp;I studied Life Sciences and Computing at Queen’s University, and got a bachelor for each.  
+              <br />&nbsp;&nbsp;&nbsp;&nbsp;I studied Life Sciences and Computing at Queen’s University, and got a Bachelors degree for each.  
               In addition to relevant courses taken, 
               I’m a self-taught Node.js and React JS developer.  
               I learned React to gain transferable skills and flexibility to interoperate between web 
@@ -200,7 +209,7 @@ const HomePage = () => {
                 </Grid>
                 <Grid item>
                     <a 
-                        href='https://www.linkedin.com/in/marshall-ruse-2b957a13b/' 
+                        href='https://www.linkedin.com/in/marshall-ruse/' 
                         target='_blank'
                         rel="noopener noreferrer"
                         className={classes.link}
@@ -225,98 +234,98 @@ const HomePage = () => {
                 Skills
             </Typography>
             <Paper className={classes.paper} >
-                <Grid container spacing={3} justify='space-evenly' alignItems='center'>
+                <Grid container spacing={3} justify='space-evenly' alignItems='stretch'>
                     <Grid item xs={12}>
                         <Typography variant='h5' align='center' className={classes.subsectionHeader}>
                             Languages
                         </Typography>
                     </Grid>
                     <Tooltip title='HTML5' placement='top'>
-                        <Grid item xs={6} sm={3} md={2} align='center'>
-                            <Img src={Html5Logo} className={classes.logoImg} />
+                        <Grid item xs={6} sm={3} md={2} align='center' height='100%'>
+                            <AnimatedIcon icon={Html5Logo} altText={"HTML 5 Logo"} iconNum={1}/>
                         </Grid> 
                     </Tooltip>
                     <Tooltip title='CSS3' placement='top'>
-                        <Grid item xs={6} sm={3} md={2} align='center'>
-                            <Img src={Css3Logo} className={classes.logoImg} />
+                        <Grid item xs={6} sm={3} md={2} align='center' height='100%'>
+                            <AnimatedIcon icon={Css3Logo} altText={"CSS 3 Logo"} iconNum={2}/>
                         </Grid> 
                     </Tooltip>
                     <Tooltip title='Javascript' placement='top'>
-                        <Grid item xs={6} sm={3} md={2} align='center'>
-                            <Img src={JavascriptLogo} className={classes.logoImg} />
+                        <Grid item xs={6} sm={3} md={2} align='center' height='100%'>
+                            <AnimatedIcon icon={JavascriptLogo} altText={"Javascript Logo"} iconNum={3}/>
                         </Grid> 
                     </Tooltip>
                     <Tooltip title='Python' placement='top'>
-                        <Grid item xs={6} sm={3} md={2} align='center'>
-                            <Img src={PythonLogo} className={classes.logoImg} />
+                        <Grid item xs={6} sm={3} md={2} align='center' height='100%'>
+                            <AnimatedIcon icon={PythonLogo} altText={"Python Logo"} iconNum={4}/>
                         </Grid> 
                     </Tooltip>
                     <Tooltip title='Java' placement='top'>
-                        <Grid item xs={6} sm={3} md={2} align='center'>
-                            <Img src={JavaLogo} className={classes.logoImg} />
+                        <Grid item xs={6} sm={3} md={2} align='center' height='100%'>
+                            <AnimatedIcon icon={JavaLogo} altText={"Java Logo"} iconNum={5}/>
                         </Grid> 
                     </Tooltip>
                 </Grid>
             </Paper>
             <Paper className={classes.paper} >
-                <Grid container spacing={3} justify='space-evenly' alignItems='center'>
+                <Grid container spacing={3} justify='space-evenly' alignItems='stretch'>
                     <Grid item xs={12}>
                         <Typography variant='h5' align='center' className={classes.subsectionHeader}>
                             Frameworks
                         </Typography>
                     </Grid>
                     <Tooltip title='React JS' placement='top'>
-                        <Grid item xs={6} sm={3} md={2} align='center'>
-                            <Img src={ReactLogo} className={classes.logoImg} />
+                        <Grid item xs={6} sm={3} md={2} align='center' height='100%'>
+                            <AnimatedIcon icon={ReactLogo} altText={"React Logo"} iconNum={1}/>
                         </Grid> 
                     </Tooltip>
                     <Tooltip title='Redux' placement='top'>
-                        <Grid item xs={6} sm={3} md={2} align='center'>
-                            <Img src={ReduxLogo} className={classes.logoImg} />
+                        <Grid item xs={6} sm={3} md={2} align='center' height='100%'>
+                            <AnimatedIcon icon={ReduxLogo} altText={"Redux Logo"} iconNum={2}/>
                         </Grid> 
                     </Tooltip>
                     <Tooltip title='Express' placement='top'>
-                        <Grid item xs={6} sm={3} md={2} align='center'>
-                            <Img src={ExpressLogo} className={classes.logoImg} />
+                        <Grid item xs={6} sm={3} md={2} align='center' height='100%'>
+                            <AnimatedIcon icon={ExpressLogo} altText={"Express Logo"} iconNum={3} />
                         </Grid> 
                     </Tooltip>
                     <Tooltip title='MongoDB' placement='top'>
-                        <Grid item xs={6} sm={3} md={2} align='center'>
-                            <Img src={MongoDBLogo} className={classes.logoImg} />
+                        <Grid item xs={6} sm={3} md={2} align='center' height='100%'>
+                            <AnimatedIcon icon={MongoDBLogo} altText={"MongoDB Logo"} iconNum={4}/>
                         </Grid> 
                     </Tooltip>
                     <Tooltip title='Node.js' placement='top'>
-                        <Grid item xs={6} sm={3} md={2} align='center'>
-                            <Img src={NodejsLogo} className={classes.logoImg} />
+                        <Grid item xs={6} sm={3} md={2} align='center' height='100%'>
+                            <AnimatedIcon icon={NodejsLogo} altText={"Node.js Logo"} iconNum={5}/>
                         </Grid> 
                     </Tooltip>
                     <Tooltip title='Firebase' placement='top'>
-                        <Grid item xs={6} sm={3} md={2} align='center'>
-                            <Img src={FirebaseLogo} className={classes.logoImg} />
+                        <Grid item xs={6} sm={3} md={2} align='center' height='100%'>
+                            <AnimatedIcon icon={FirebaseLogo} altText={"Firebase Logo"} iconNum={6}/>
                         </Grid> 
                     </Tooltip>
                 </Grid>
             </Paper>
             <Paper className={classes.paper} >
-                <Grid container spacing={3} justify='space-evenly' alignItems='center'>
+                <Grid container spacing={3} justify='space-evenly' alignItems='stretch'>
                     <Grid item xs={12}>
                         <Typography variant='h5' align='center' className={classes.subsectionHeader}>
                             Libraries
                         </Typography>
                     </Grid>
                     <Tooltip title='Handlebars' placement='top'>
-                        <Grid item xs={6} sm={3} md={2} align='center'>
-                            <Img src={HandlebarsLogo} className={classes.logoImg} />
+                        <Grid item xs={6} sm={3} md={2} align='center' className={classes.logoBox}>
+                            <AnimatedIcon icon={HandlebarsLogo} altText={"Handlebars Logo"} iconNum={1}/>
                         </Grid> 
                     </Tooltip>
                     <Tooltip title='Material-UI' placement='top'>
-                        <Grid item xs={6} sm={3} md={2} align='center'>
-                            <Img src={MaterialUILogo} className={classes.logoImg} />
+                        <Grid item xs={6} sm={3} md={2} align='center' height='100%'>
+                            <AnimatedIcon icon={MaterialUILogo} altText={"Material UI Logo"} iconNum={2}/>
                         </Grid> 
                     </Tooltip>
                     <Tooltip title='Sass' placement='top'>
-                        <Grid item xs={6} sm={3} md={2} align='center'>
-                            <Img src={SassLogo} className={classes.logoImg} />
+                        <Grid item xs={6} sm={3} md={2} align='center' height='100%'>
+                            <AnimatedIcon icon={SassLogo} altText={"Sass Logo"} iconNum={3}/>
                         </Grid> 
                     </Tooltip>
                 </Grid>

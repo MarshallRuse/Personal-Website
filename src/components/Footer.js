@@ -25,7 +25,7 @@ const Footer = () => {
           <Typography variant="body2" color="textSecondary" align="center">
             {'Copyright © '}
             <a 
-                href='https://www.linkedin.com/in/marshall-ruse-2b957a13b/' 
+                href='https://www.linkedin.com/in/marshall-ruse/' 
                 target='_blank'
                 rel="noopener noreferrer"
                 className={classes.link}
