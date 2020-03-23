@@ -19,6 +19,7 @@ import {
  import HeaderPhoto from './elements/HeaderPhoto';
  import HeaderTitle from './elements/HeaderTitle';
  import FadeInText from './elements/FadeInText';
+ import BounceInForwardElement from './elements/BounceInForwardElement';
  import AnimatedIcon from './elements/AnimatedIcon';
  import GlowingCard from './elements/GlowingCard';
  import FlipInCard from './elements/FlipInCard';
@@ -236,30 +237,34 @@ const HomePage = () => {
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
                 <Grid item>
-                    <a 
-                        href='https://github.com/MarshallRuse' 
-                        target='_blank'
-                        rel="noopener noreferrer"
-                        className={classes.link}
-                    >
-                        <Button variant="contained" color="primary">
-                            <GitHub style={{marginRight: '5px'}} />
-                            GitHub
-                        </Button>
-                    </a>
+                    <BounceInForwardElement animationDelay={"7s"}>
+                        <a 
+                            href='https://github.com/MarshallRuse' 
+                            target='_blank'
+                            rel="noopener noreferrer"
+                            className={classes.link}
+                        >
+                            <Button variant="contained" color="primary">
+                                <GitHub style={{marginRight: '5px'}} />
+                                GitHub
+                            </Button>
+                        </a>
+                    </BounceInForwardElement>
                 </Grid>
                 <Grid item>
-                    <a 
-                        href='https://www.linkedin.com/in/marshall-ruse/' 
-                        target='_blank'
-                        rel="noopener noreferrer"
-                        className={classes.link}
-                    >
-                        <Button variant="contained" className={classes.inverseButton}>
-                            <LinkedIn style={{marginRight: '5px'}} />
-                            LinkedIn
-                        </Button>
-                  </a>
+                    <BounceInForwardElement animationDelay={"7.2s"}>
+                        <a 
+                            href='https://www.linkedin.com/in/marshall-ruse/' 
+                            target='_blank'
+                            rel="noopener noreferrer"
+                            className={classes.link}
+                        >
+                            <Button variant="contained" className={classes.inverseButton}>
+                                <LinkedIn style={{marginRight: '5px'}} />
+                                LinkedIn
+                            </Button>
+                    </a>
+                  </BounceInForwardElement>
                 </Grid>
               </Grid>
             </div>
