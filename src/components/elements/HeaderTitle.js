@@ -1,9 +1,7 @@
 import React from 'react';
-import Img from 'react-image';
 // import { withStyles } from '@material-ui/styles';
 import styled, { keyframes } from 'styled-components';
-
-import PictureOfMe from '../../assets/images/HomePage/PictureOfMe.jpg';
+import { Typography } from '@material-ui/core';
 
 const bounceInFwd = keyframes`
         0% {
@@ -44,23 +42,25 @@ const bounceInFwd = keyframes`
 `;
 
 
-const StyledImage = styled.img`
-    animation: ${bounceInFwd} 1.1s cubic-bezier(0.950, 0.050, 0.795, 0.035) 5.4s both;
-    border-radius: 50%;
-    width: 100%;
+const StyledText = styled.div`
+    animation: ${bounceInFwd} 1.1s cubic-bezier(0.950, 0.050, 0.795, 0.035) 5s both;
 `;
 
 
-class HeaderPhoto extends React.Component {
+class HeaderTitle extends React.Component {
 
     render() {
 
         return (
             <>
-                <StyledImage src={PictureOfMe} />
+                <StyledText>
+                    <Typography component="h1" variant="h2" align="center" color="inherit" gutterBottom>
+                       Marshall Ruse
+                    </Typography>
+                </StyledText>
             </>
         )
     }
 }
 
-export default HeaderPhoto;
+export default HeaderTitle;

@@ -97,12 +97,10 @@ const StyledIcon = styled.img`
 const AnimatedIcon = (props) => {
 
     const [ref, inView, entry] = useInView({
-        rootMargin: '0% 0% -30% 0%',
+        rootMargin: '0% 0% -25% 0%',
         threshold: 0,
         triggerOnce: true
     });
-
-    inView ? console.log("Hey there") : console.log("CANT SEE")
 
     return (
     <>
