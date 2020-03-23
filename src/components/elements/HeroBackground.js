@@ -20,12 +20,10 @@ const SVGLayer = styled.div`
 
     @media (max-width: 600px){
         background-position-x: 38%;
-        background-position-y: 130px;
     }
 
     @media (max-width: 1024px){
         background-position-x: 38%;
-        background-position-y: 90px;
     }
 `;
 
@@ -41,12 +39,10 @@ const BackgroundImageDiv = styled.div`
 
     @media (max-width: 600px){
         background-position-x: 38%;
-        background-position-y: 130px;
     }
 
     @media (max-width: 1024px){
         background-position-x: 38%;
-        background-position-y: 90px;
     }
 `;
 

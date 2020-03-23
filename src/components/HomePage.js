@@ -165,6 +165,9 @@ const useStyles = makeStyles(theme => ({
         padding: '65px 0 40px',
         [theme.breakpoints.down('md')]: {
             padding: '40px 0px'
+        },
+        [theme.breakpoints.down('sm')]: {
+            padding: '20px 0px 25px'
         }
     },
     paper: {
