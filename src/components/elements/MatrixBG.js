@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Canvas from "./Canvas";
 
-const MatrixBG = () => {
+const MatrixBG = (props) => {
+	const { fps = 60 } = props;
 	const [canvasWidth, setCanvasWidth] = useState(undefined);
 	const [ctx, setCtx] = useState(undefined);
 
@@ -26,6 +27,40 @@ const MatrixBG = () => {
 		drops[i] = 1;
 	}
 
+	const convertMousePosToRowsAndCols = (x, y) => {
+		// get col position
+		const col = Math.floor(x / fontSize);
+
+		// get row pos
+		const row = Math.min(Math.ceil(y / fontSize), Math.floor(ctx.canvas.height));
+
+		return { row, col };
+	};
+
+	// Disturbance Effect Handlers
+	let disturbanceRow = -1;
+	let disturbanceCol = -1;
+	let timeout;
+
+	const disturbanceEffect = (e) => {
+		clearTimeout(timeout);
+		const bounds = e.target.getBoundingClientRect();
+		const x = e.clientX - bounds.left;
+		const y = e.clientY - bounds.top;
+		const { row, col } = convertMousePosToRowsAndCols(x, y);
+		disturbanceRow = row;
+		disturbanceCol = col;
+		timeout = setTimeout(() => {
+			disturbanceRow = -1;
+			disturbanceCol = -1;
+		}, 50);
+	};
+
+	const isDisturbanceAffectedPosition = (dropIndex) => {
+		return drops[dropIndex] * fontSize > disturbanceRow && dropIndex === disturbanceCol;
+	};
+
+	// Canvas drawing
 	const draw = () => {
 		if (ctx) {
 			ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
@@ -38,10 +73,25 @@ const MatrixBG = () => {
 				if (drops[i] * fontSize > ctx.canvas.height && Math.random() > 0.95) {
 					drops[i] = 0;
 				}
+				if (isDisturbanceAffectedPosition(i)) {
+					const h = Math.max(i - 1, 0);
+					const j = Math.min(i + 1, Math.floor(columns));
+					drops[h] = disturbanceRow;
+					drops[i] = disturbanceRow;
+					drops[j] = disturbanceRow;
+				}
 			}
 		}
 	};
-	return <Canvas draw={draw} establishCanvasWidth={establishCanvasWidth} establishContext={establishContext} />;
+	return (
+		<Canvas
+			draw={draw}
+			onMouseMove={disturbanceEffect}
+			establishCanvasWidth={establishCanvasWidth}
+			establishContext={establishContext}
+			fps={fps}
+		/>
+	);
 };
 
 export default MatrixBG;
