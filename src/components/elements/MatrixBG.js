@@ -63,7 +63,7 @@ const MatrixBG = (props) => {
 	// Canvas drawing
 	const draw = () => {
 		if (ctx) {
-			ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+			ctx.fillStyle = "rgb(17,3,60, 0.1)";
 			ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 			for (let i = 0; i < drops.length; i++) {
 				const text = letters[Math.floor(Math.random() * letters.length)];

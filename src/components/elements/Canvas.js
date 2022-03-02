@@ -71,7 +71,7 @@ const Canvas = (props) => {
 		};
 	}, [draw]);
 
-	return <canvas ref={canvasRef} {...rest} style={{ display: "block", width, height }} />;
+	return <canvas ref={canvasRef} {...rest} style={{ display: "block", position: "absolute", width, height }} />;
 };
 
 export default Canvas;
