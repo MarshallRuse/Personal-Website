@@ -53,6 +53,7 @@ import BingoPartyHomePage from "../assets/images/BingoParty/BingoPartyHomePage.p
 import RoverFollowerMultipleFollowers from "../assets/images/RoverFollower/RoverFollowerMultipleFollowers.png";
 import PersonalWebsite from "../assets/images/HomePage/PersonalWebsite.png";
 import MatrixBG from "./elements/MatrixBG";
+import ProjectCard from "./elements/ProjectCard";
 
 console.log("Southern Ontario: ", SouthernOntario);
 const useStyles = makeStyles((theme) => ({
@@ -188,10 +189,11 @@ const useStyles = makeStyles((theme) => ({
 		width: "100%",
 	},
 	projectsSection: {
-		backgroundImage: ["linear-gradient(rgba(34,39,90,0.5), rgba(34,39,90,0.5))", `url(${CodeBackground})`],
+		//backgroundImage: ["linear-gradient(rgba(34,39,90,0.5), rgba(34,39,90,0.5))", `url(${CodeBackground})`],
 		backgroundSize: "contain",
 		minHeight: "100vh",
 		padding: theme.spacing(8, 0, 10),
+		position: "relative",
 	},
 	sectionHeader: {
 		paddingTop: "10px",
@@ -383,19 +385,26 @@ const HomePage = () => {
 					</Grid>
 				</Paper>
 			</Container>
-			<MatrixBG />
+
 			<div id='projects-section' className={classes.projectsSection}>
+				<MatrixBG />
 				<Container className={classes.cardGrid} maxWidth='md'>
 					<Typography
 						id='skills-section'
 						variant='h3'
 						align='center'
 						className={classes.sectionHeader}
-						style={{ color: "#fff" }}
+						style={{ color: "#fff", position: "relative", pointerEvents: "none" }}
 					>
 						Projects
 					</Typography>
 					<Grid container spacing={4}>
+						<Grid item xs={12} sm={6}>
+							<ProjectCard />
+						</Grid>
+						<Grid item xs={12} sm={6}>
+							<ProjectCard />
+						</Grid>
 						<Grid item xs={12} sm={6} md={4}>
 							<Card className={classes.card} classes={{ root: classes.cardRoot }} elevation={10}>
 								<ButtonBase component={Card} classes={{ root: classes.buttonBaseRoot }}>
