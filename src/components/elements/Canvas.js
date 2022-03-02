@@ -40,7 +40,6 @@ const Canvas = (props) => {
 	}, [canvasRef.current]);
 
 	useEffect(() => {
-		let frameCount = 0;
 		let animationFrameId, fpsInterval, startTime, now, then, elapsed;
 
 		if (context) {
@@ -52,9 +51,7 @@ const Canvas = (props) => {
 					// Get ready for next frame by setting then=now, but also adjust for your
 					// specified fpsInterval not being a multiple of RAF's interval (16.7ms)
 					then = now - (elapsed % fpsInterval);
-					frameCount++;
-					//resizeCanvas(context);
-					draw(context, frameCount);
+					draw();
 				}
 			};
 			const startRendering = (fps) => {
