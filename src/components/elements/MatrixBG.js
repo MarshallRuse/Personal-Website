@@ -70,8 +70,11 @@ const MatrixBG = (props) => {
 				ctx.fillStyle = "#0ff";
 				ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 				drops[i]++;
-				if (drops[i] * fontSize > ctx.canvas.height && Math.random() > 0.95) {
-					drops[i] = 0;
+				if (
+					drops[i] * fontSize > window.scrollY + window.innerHeight ||
+					drops[i] * fontSize > ctx.canvas.height
+				) {
+					drops[i] = Math.round(-100 * Math.random());
 				}
 				if (isDisturbanceAffectedPosition(i)) {
 					const h = Math.max(i - 1, 0);

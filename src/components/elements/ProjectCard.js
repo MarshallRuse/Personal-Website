@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { CSSVariables, GlassPanelNear, DeepPanel, CardText } from "../styles/Mixins";
 import breakpoints from "../styles/breakpoints";
@@ -13,19 +14,19 @@ const CardContainer = styled.div`
 	${CSSVariables}
 	cursor: pointer;
 	display: grid;
-    grid-template-areas:    ". . . background background background ."
-                            "icons . header header header header header"
-                            "icons . . background background background ."
-                            "icons . 
+
 	grid-template-columns: 1.4fr 0.5fr 0.4fr 0.3fr 3.6fr 0.3fr 0.4fr;
 	grid-template-rows: 0.4fr 0.7fr 2.1fr 0.8fr 1fr 1fr;
 	gap: 0px 0px;
 	grid-auto-flow: row;
 
-    @media(max-width: ${breakpoints.sm}){
-
-    }
+	@media (max-width: ${breakpoints.sm}) {
+	}
 `;
+// grid-template-areas:    ". . . background background background ."
+//                             "icons . header header header header header"
+//                             "icons . . background background background ."
+//                             "icons .
 
 const CardBackground = styled.div`
 	background: linear-gradient(341.88deg, rgba(196, 196, 196, 0.483) 4.32%, rgba(196, 196, 196, 0.07) 97.22%);
