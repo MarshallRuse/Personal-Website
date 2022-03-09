@@ -1,18 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import {
-    Button,
-    ButtonBase,
-    Card,
-    CardActions,
-    CardContent,
-    CardMedia,
-    Container,
-    Grid,
-    Paper,
-    Tooltip,
-    Typography,
-} from "@material-ui/core";
+import { Button, Container, Grid, Paper, Tooltip, Typography } from "@material-ui/core";
 import { GitHub, LinkedIn } from "@material-ui/icons";
 
 import HeroBackground from "./elements/HeroBackground";
@@ -21,39 +8,37 @@ import HeaderTitle from "./elements/HeaderTitle";
 import FadeInText from "./elements/FadeInText";
 import BounceInForwardElement from "./elements/BounceInForwardElement";
 import AnimatedIcon from "./elements/AnimatedIcon";
-import GlowingCard from "./elements/GlowingCard";
-import FlipInCard from "./elements/FlipInCard";
+import MatrixBG from "./elements/MatrixBG";
+import ProjectCard from "./elements/ProjectCard";
 
 // Logos
 import { makeStyles } from "@material-ui/core/styles";
-import Img from "react-image";
-import Html5Logo from "../assets/logos/html5.svg";
 import Css3Logo from "../assets/logos/css3.svg";
-import JavascriptLogo from "../assets/logos/javascript.svg";
-import PythonLogo from "../assets/logos/python.svg";
-import JavaLogo from "../assets/logos/java.svg";
-import ReactLogo from "../assets/logos/react.svg";
-import ReduxLogo from "../assets/logos/redux.svg";
 import ExpressLogo from "../assets/logos/express.svg";
-import MongoDBLogo from "../assets/logos/mongodb.svg";
-import NodejsLogo from "../assets/logos/nodejs.svg";
 import FirebaseLogo from "../assets/logos/firebase.svg";
 import HandlebarsLogo from "../assets/logos/handlebars.svg";
+import Html5Logo from "../assets/logos/html5.svg";
+import JavaLogo from "../assets/logos/java.svg";
+import JavascriptLogo from "../assets/logos/javascript.svg";
 import MaterialUILogo from "../assets/logos/material-ui.svg";
+import MatplotlibLogo from "../assets/logos/matplotlib.svg";
+import MongoDBLogo from "../assets/logos/mongodb.svg";
+import NodejsLogo from "../assets/logos/nodejs.svg";
+import NumpyLogo from "../assets/logos/numpy.svg";
+import PythonLogo from "../assets/logos/python.svg";
+import ReactLogo from "../assets/logos/react.svg";
+import ReduxLogo from "../assets/logos/redux.svg";
 import SassLogo from "../assets/logos/sass.svg";
+import StyledComponentsLogo from "../assets/logos/styledcomponents.png";
 
 // Images
+import BingoPartyImage from "../assets/images/bingo.jpg";
+import PersonalWebsiteImage from "../assets/images/HomePage/PersonalWebsitePortrait.png";
+import RoverFollowerImage from "../assets/images/curiosity-rover-mars.jpg";
 import SouthernOntario from "../assets/images/HomePage/SouthernOntario.png";
 import SouthernOntarioAnimatedSVG from "../assets/images/HomePage/svg/SouthernOntarioAnimated.svg";
-import CodeBackground from "../assets/images/HomePage/CodeBackground.png";
-import PictureOfMe from "../assets/images/HomePage/PictureOfMe.jpg";
-import WorkoutLoggerExerciseInstancePageUnilateralLandscape from "../assets/images/WorkoutLogger/WorkoutLoggerExerciseInstancePageUnilateralLandscape.png";
-import TripTrackerTripPageLandscape from "../assets/images/TripTracker/TripTrackerTripPageLandscape.png";
-import BingoPartyHomePage from "../assets/images/BingoParty/BingoPartyHomePage.png";
-import RoverFollowerMultipleFollowers from "../assets/images/RoverFollower/RoverFollowerMultipleFollowers.png";
-import PersonalWebsite from "../assets/images/HomePage/PersonalWebsite.png";
-import MatrixBG from "./elements/MatrixBG";
-import ProjectCard from "./elements/ProjectCard";
+import TripTrackerImage from "../assets/images/cityscape-girl-night.jpg";
+import WorkoutLoggerImage from "../assets/images/girl-barbell-curls.jpg";
 
 console.log("Southern Ontario: ", SouthernOntario);
 const useStyles = makeStyles((theme) => ({
@@ -71,58 +56,7 @@ const useStyles = makeStyles((theme) => ({
         color: "#7d7d7d",
         paddingBottom: "10px",
     },
-    card: {
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-    },
-    cardActions: {
-        display: "flex",
-        justifyContent: "space-evenly",
-    },
-    cardGrid: {
-        paddingTop: theme.spacing(8),
-        paddingBottom: theme.spacing(8),
-    },
-    cardMedia: {
-        paddingTop: "62.25%",
-    },
-    cardContent: {
-        flexGrow: 1,
-    },
-    cardRoot: {
-        height: "100%",
-        position: "relative",
 
-        // '&:before': {
-        //     content: "''",
-        //     background: 'linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000)',
-        //     position: 'absolute',
-        //     top: '-2px',
-        //     left: '-2px',
-        //     backgroundSize: '400%',
-        //     zIndex: -1,
-        //     filter: 'blur(5px)',
-        //     width: 'calc(100% + 4px)',
-        //     height: 'calc(100% + 4px)',
-        //     animation: 'animate 20s linear infinite',
-        //     opacity: 0,
-        //     transition: 'opacity .3s ease'
-        // },
-
-        // '&:hover:before': {
-        //     opacity: 1
-        // },
-
-        // '&:after': {
-        //     zIndex: -1,
-        //     content: " '' ",
-        //     position: 'absolute',
-        //     width: '100%',
-        //     height: '100%',
-        //     background: '#111'
-        // }
-    },
     heroButtons: {
         marginTop: theme.spacing(4),
     },
@@ -196,8 +130,13 @@ const useStyles = makeStyles((theme) => ({
         position: "relative",
     },
     sectionHeader: {
-        paddingTop: "10px",
-        paddingBottom: "40px",
+        fontFamily: "'Orbitron', sans-serif",
+        paddingTop: "1em",
+        paddingBottom: "2em",
+    },
+    sectionSpacing: {
+        paddingTop: theme.spacing(8),
+        paddingBottom: theme.spacing(8),
     },
     subsectionHeader: {
         paddingTop: "20px",
@@ -283,7 +222,7 @@ const HomePage = () => {
                     </div>
                 </Container>
             </HeroBackground>
-            <Container className={classes.cardGrid} maxWidth='md'>
+            <Container className={classes.sectionSpacing} maxWidth='md'>
                 <Typography id='skills-section' variant='h3' align='center' className={classes.sectionHeader}>
                     Skills
                 </Typography>
@@ -387,8 +326,8 @@ const HomePage = () => {
             </Container>
 
             <div id='projects-section' className={classes.projectsSection}>
-                <MatrixBG />
-                <Container className={classes.cardGrid} maxWidth='md'>
+                <MatrixBG fps={30} />
+                <Container className={classes.sectionSpacing} maxWidth='md'>
                     <Typography
                         id='skills-section'
                         variant='h3'
@@ -398,221 +337,90 @@ const HomePage = () => {
                     >
                         Projects
                     </Typography>
-                    <Grid container spacing={4}>
-                        <Grid item xs={12} sm={6} md={4}>
-                            <Card className={classes.card} classes={{ root: classes.cardRoot }} elevation={10}>
-                                <ButtonBase component={Card} classes={{ root: classes.buttonBaseRoot }}>
-                                    <Link to='projects/WorkoutLogger' className={classes.link}>
-                                        <CardMedia
-                                            className={classes.cardMedia}
-                                            image={WorkoutLoggerExerciseInstancePageUnilateralLandscape}
-                                            title='Image title'
-                                        />
-                                        <CardContent className={classes.cardContent}>
-                                            <Typography gutterBottom variant='h5' component='h2'>
-                                                Workout Logger (Mobile, In Progress)
-                                            </Typography>
-                                            <Typography variant='caption' className={classes.captionText}>
-                                                <em>
-                                                    React, React Hooks, Material-UI, Firebase Authentication, Cloud
-                                                    Firestore
-                                                </em>
-                                            </Typography>
-                                            <Typography>
-                                                Create custom, detailed exercises. Track your progress, get detailed
-                                                summaries by muscle-group and exercise.
-                                            </Typography>
-                                        </CardContent>
-                                    </Link>
-                                </ButtonBase>
-                                <CardActions className={classes.cardActions}>
-                                    <a
-                                        href='https://marshalls-workout-logger.herokuapp.com/'
-                                        target='_blank'
-                                        rel='noopener noreferrer'
-                                        className={classes.link}
-                                    >
-                                        <Button size='small' color='primary'>
-                                            Demo
-                                        </Button>
-                                    </a>
-                                    <a
-                                        href='https://github.com/MarshallRuse/workout-logger'
-                                        target='_blank'
-                                        rel='noopener noreferrer'
-                                        className={classes.link}
-                                    >
-                                        <Button size='small' color='primary'>
-                                            Source
-                                        </Button>
-                                    </a>
-                                </CardActions>
-                            </Card>
+                    <Grid container spacing={4} justify='space-apart'>
+                        <Grid item xs={12} md={6}>
+                            <ProjectCard
+                                cardImage={WorkoutLoggerImage}
+                                cardTitle='Workout Logger'
+                                cardSubtitle='Record reps, sets, and weights'
+                                projectPageLink='projects/WorkoutLogger'
+                                demoLink='https://marshalls-workout-logger.herokuapp.com/'
+                                sourceLink='https://github.com/MarshallRuse/workout-logger'
+                                stackIcons={[
+                                    { class: "react", icon: ReactLogo },
+                                    { class: "nodejs", icon: NodejsLogo },
+                                    { class: "express", icon: ExpressLogo },
+                                    { class: "firebase", icon: FirebaseLogo },
+                                ]}
+                            />
                         </Grid>
-                        <Grid item xs={12} sm={6} md={4}>
-                            <Card className={classes.card} classes={{ root: classes.cardRoot }}>
-                                <ButtonBase component={Card} classes={{ root: classes.buttonBaseRoot }}>
-                                    <Link to='/projects/TripTracker' className={classes.link}>
-                                        <CardMedia
-                                            className={classes.cardMedia}
-                                            image={TripTrackerTripPageLandscape}
-                                            title='Trip Tracker Trips Page'
-                                        />
-                                        <CardContent className={classes.cardContent}>
-                                            <Typography gutterBottom variant='h5' component='h2'>
-                                                Trip Tracker (Mobile)
-                                            </Typography>
-                                            <Typography variant='caption' className={classes.captionText}>
-                                                <em>
-                                                    React, React Hooks, Material-UI, Express, MongoDB, Mongoose, Google
-                                                    Places API
-                                                </em>
-                                            </Typography>
-                                            <Typography>
-                                                Add expenses in over 30 currencies. Convert between them with
-                                                date-accurate conversion rates. Summarize your trip expenses by date,
-                                                category, city, and country.
-                                            </Typography>
-                                        </CardContent>
-                                    </Link>
-                                </ButtonBase>
-                                <CardActions className={classes.cardActions}>
-                                    <a
-                                        href='https://marshall-trip-tracker-app.herokuapp.com/'
-                                        target='_blank'
-                                        rel='noopener noreferrer'
-                                        className={classes.link}
-                                    >
-                                        <Button size='small' color='primary'>
-                                            Demo
-                                        </Button>
-                                    </a>
-                                    <a
-                                        href='https://github.com/MarshallRuse/TripExpensesTracker'
-                                        target='_blank'
-                                        rel='noopener noreferrer'
-                                        className={classes.link}
-                                    >
-                                        <Button size='small' color='primary'>
-                                            Source
-                                        </Button>
-                                    </a>
-                                </CardActions>
-                            </Card>
+                        <Grid item xs={12} md={6}>
+                            <ProjectCard
+                                cardImage={TripTrackerImage}
+                                cardTitle='Trip Tracker'
+                                cardSubtitle='Track expenses in 30 currencies'
+                                projectPageLink='projects/TripTracker'
+                                demoLink='https://marshall-trip-tracker-app.herokuapp.com/'
+                                sourceLink='https://github.com/MarshallRuse/TripExpensesTracker'
+                                stackIcons={[
+                                    { class: "react", icon: ReactLogo },
+                                    { class: "materialui", icon: MaterialUILogo },
+                                    { class: "express", icon: ExpressLogo },
+                                    { class: "nodejs", icon: NodejsLogo },
+                                    { class: "mongodb", icon: MongoDBLogo },
+                                ]}
+                            />
                         </Grid>
-                        <Grid item xs={12} sm={6} md={4}>
-                            <Card className={classes.card} classes={{ root: classes.cardRoot }}>
-                                <ButtonBase component={Card} classes={{ root: classes.buttonBaseRoot }}>
-                                    <Link to='/projects/BingoParty' className={classes.link}>
-                                        <CardMedia
-                                            className={classes.cardMedia}
-                                            image={BingoPartyHomePage}
-                                            title='Bingo Party Home Page'
-                                        />
-                                        <CardContent className={classes.cardContent}>
-                                            <Typography gutterBottom variant='h5' component='h2'>
-                                                Bingo Party (Desktop)
-                                            </Typography>
-                                            <Typography variant='caption' className={classes.captionText}>
-                                                <em>
-                                                    React, Redux, Express, Passport, JWT Authentication, MongoDB,
-                                                    Mongoose
-                                                </em>
-                                            </Typography>
-                                            <Typography>
-                                                Create fun bingo games. Play in your browser and save for later. Follow
-                                                your favourite creators and be followed by others!
-                                            </Typography>
-                                        </CardContent>
-                                    </Link>
-                                </ButtonBase>
-                                <CardActions className={classes.cardActions}>
-                                    <a
-                                        href='https://marshall-bingo-party-app.herokuapp.com/'
-                                        target='_blank'
-                                        rel='noopener noreferrer'
-                                        className={classes.link}
-                                    >
-                                        <Button size='small' color='primary'>
-                                            Demo
-                                        </Button>
-                                    </a>
-                                    <a
-                                        href='https://github.com/MarshallRuse/Bingo-App-React'
-                                        target='_blank'
-                                        rel='noopener noreferrer'
-                                        className={classes.link}
-                                    >
-                                        <Button size='small' color='primary'>
-                                            Source
-                                        </Button>
-                                    </a>
-                                </CardActions>
-                            </Card>
+                        <Grid item xs={12} md={6}>
+                            <ProjectCard
+                                cardImage={BingoPartyImage}
+                                cardTitle='Bingo Party'
+                                cardSubtitle='Bingo in a browser'
+                                projectPageLink='/projects/BingoParty'
+                                demoLink='https://marshall-bingo-party-app.herokuapp.com/'
+                                sourceLink='https://github.com/MarshallRuse/Bingo-App-React'
+                                stackIcons={[
+                                    { class: "react", icon: ReactLogo },
+                                    { class: "redux", icon: ReduxLogo },
+                                    { class: "express", icon: ExpressLogo },
+                                    { class: "nodejs", icon: NodejsLogo },
+                                    { class: "mongodb", icon: MongoDBLogo },
+                                ]}
+                            />
                         </Grid>
-                        <Grid item xs={12} sm={6} md={4}>
-                            <Card className={classes.card} classes={{ root: classes.cardRoot }}>
-                                <ButtonBase component={Card} classes={{ root: classes.buttonBaseRoot }}>
-                                    <Link to='/projects/RoverFollower' className={classes.link}>
-                                        <CardMedia
-                                            className={classes.cardMedia}
-                                            image={RoverFollowerMultipleFollowers}
-                                            title='Rover Multiple Followers'
-                                        />
-                                        <CardContent className={classes.cardContent}>
-                                            <Typography gutterBottom variant='h5' component='h2'>
-                                                Rover Follower
-                                            </Typography>
-                                            <Typography variant='caption' className={classes.captionText}>
-                                                <em>Python, NumPy, Matplotlib, Java, TCP Socket Communication</em>
-                                            </Typography>
-                                            <Typography>
-                                                Have one or more simulated rovers autonomously follow a leader rover on
-                                                a random trajectory. Tracking and coordination issued via TCP socket
-                                                commands.
-                                            </Typography>
-                                        </CardContent>
-                                    </Link>
-                                </ButtonBase>
-                                <CardActions className={classes.cardActions}>
-                                    <Button size='small' color='primary'>
-                                        Source
-                                    </Button>
-                                </CardActions>
-                            </Card>
+                        <Grid item xs={12} md={6}>
+                            <ProjectCard
+                                cardImage={RoverFollowerImage}
+                                cardTitle='Rover Follower'
+                                cardSubtitle='Automated convoy of simulated Mars rovers'
+                                projectPageLink='/projects/RoverFollower'
+                                demoLink='https://youtu.be/mospnG-yyUk'
+                                sourceLink='https://github.com/MarshallRuse/Rover-Follower-Challenge'
+                                stackIcons={[
+                                    { class: "python", icon: PythonLogo },
+                                    { class: "numpy", icon: NumpyLogo },
+                                    { class: "matplotlib", icon: MatplotlibLogo },
+                                    { class: "java", icon: JavaLogo },
+                                ]}
+                            />
                         </Grid>
-                        <Grid item xs={12} sm={6} md={4}>
-                            <Card className={classes.card} classes={{ root: classes.cardRoot }}>
-                                <CardMedia className={classes.cardMedia} image={PersonalWebsite} title='This website' />
-                                <CardContent className={classes.cardContent}>
-                                    <Typography gutterBottom variant='h5' component='h2'>
-                                        This Website!
-                                    </Typography>
-                                    <Typography variant='caption' className={classes.captionText}>
-                                        <em>React, Material-UI</em>
-                                    </Typography>
-                                    <Typography>
-                                        This very website, built with Material-UI and JSS-styled React components.
-                                    </Typography>
-                                </CardContent>
-                                <CardActions className={classes.cardActions}>
-                                    <a
-                                        href='https://github.com/MarshallRuse/Personal-Website'
-                                        target='_blank'
-                                        rel='noopener noreferrer'
-                                        className={classes.link}
-                                    >
-                                        <Button size='small' color='primary'>
-                                            Source
-                                        </Button>
-                                    </a>
-                                </CardActions>
-                            </Card>
+                        <Grid item xs={12} md={6}>
+                            <ProjectCard
+                                cardImage={PersonalWebsiteImage}
+                                cardTitle='marshallruse.com'
+                                cardSubtitle='This website!'
+                                sourceLink='https://github.com/MarshallRuse/Personal-Website'
+                                stackIcons={[
+                                    { class: "react", icon: ReactLogo },
+                                    { class: "materialui", icon: MaterialUILogo },
+                                    { class: "styledcomponents", icon: StyledComponentsLogo },
+                                ]}
+                            />
                         </Grid>
                     </Grid>
                 </Container>
             </div>
-            <Container id='about-me-section' className={classes.cardGrid} maxWidth='md'>
+            <Container id='about-me-section' className={classes.sectionSpacing} maxWidth='md'>
                 <Typography id='skills-section' variant='h3' align='center' className={classes.sectionHeader}>
                     About Me
                 </Typography>
@@ -658,7 +466,7 @@ const HomePage = () => {
                     </Typography>
                 </Paper>
             </Container>
-            <Container id='contact-section' className={classes.cardGrid} maxWidth='md'>
+            <Container id='contact-section' className={classes.sectionSpacing} maxWidth='md'>
                 <Typography id='skills-section' variant='h3' align='center' className={classes.sectionHeader}>
                     Contact
                 </Typography>
