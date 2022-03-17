@@ -1,223 +1,267 @@
 @import "~augmented-ui/augmented-ui.min.css";
 :root {
-    --color-purple: #711c91;
-    --color-pink: #ea00d9;
-    --color-blue-light: rgb(10, 189, 198);
-    --color-blue-light-raw: 10, 189, 198;
-    --color-blue-mid: #133e7c;
-    --color-blue-dark: #091833;
-    --color-yellow: #f9c434;
-    --color-express: #fff;
-    --color-express-raw: 255, 255, 255;
-    --color-firebase: rgb(245, 130, 32);
-    --color-firebase-raw: 245, 130, 32;
-    --color-java: rgb(231, 111, 0);
-    --color-java-raw: 231, 111, 0;
-    --color-materialui: rgb(0, 176, 255);
-    --color-materialui-raw: 0, 176, 255;
-    --color-matplotlib: rgb(207, 205, 217);
-    --color-matplotlib-raw: 207, 205, 217;
-    --color-mongodb: rgba(67, 153, 52);
-    --color-mongodb-raw: 75, 153, 52;
-    --color-nodejs: rgb(121, 205, 41);
-    --color-nodejs-raw: 121, 205, 41;
-    --color-numpy: rgb(76, 171, 207);
-    --color-numpy-raw: 76, 171, 207;
-    --color-python: rgb(255, 212, 69);
-    --color-python-raw: 255, 212, 69;
-    --color-react: rgb(97, 218, 251);
-    --color-react-raw: 97, 218, 251;
-    --color-styledcomponents: rgb(241, 160, 219);
-    --color-styledcomponents-raw: 241, 160, 219;
+	--color-purple: rgb(113, 28, 145);
+	--color-purple-raw: 113, 28, 145;
+	--color-pink: rgb(234, 0, 217);
+	--color-pink-raw: 234, 0, 217;
+	--color-blue-light: rgb(10, 189, 198);
+	--color-blue-light-raw: 10, 189, 198;
+	--color-blue-mid: #133e7c;
+	--color-blue-dark: #091833;
+	--color-yellow: #f9c434;
+	--color-express: #fff;
+	--color-express-raw: 255, 255, 255;
+	--color-firebase: rgb(245, 130, 32);
+	--color-firebase-raw: 245, 130, 32;
+	--color-java: rgb(231, 111, 0);
+	--color-java-raw: 231, 111, 0;
+	--color-materialui: rgb(0, 176, 255);
+	--color-materialui-raw: 0, 176, 255;
+	--color-matplotlib: rgb(207, 205, 217);
+	--color-matplotlib-raw: 207, 205, 217;
+	--color-mongodb: rgba(67, 153, 52);
+	--color-mongodb-raw: 75, 153, 52;
+	--color-nodejs: rgb(121, 205, 41);
+	--color-nodejs-raw: 121, 205, 41;
+	--color-numpy: rgb(76, 171, 207);
+	--color-numpy-raw: 76, 171, 207;
+	--color-python: rgb(255, 212, 69);
+	--color-python-raw: 255, 212, 69;
+	--color-react: rgb(97, 218, 251);
+	--color-react-raw: 97, 218, 251;
+	--color-redux: rgb(118, 74, 188);
+	--color-redux-raw: 118, 74, 188;
+	--color-styledcomponents: rgb(241, 160, 219);
+	--color-styledcomponents-raw: 241, 160, 219;
+}
+@keyframes tilting {
+	0% {
+		transform: rotateX(0deg);
+	}
+
+	25% {
+		transform: rotateX(2.5deg);
+	}
+
+	50% {
+		transform: rotateX(0deg);
+	}
+
+	75% {
+		transform: rotateX(-2.5deg);
+	}
+
+	100% {
+		transform: rotateX(0deg);
+	}
 }
 
 .cardWrapper {
-    aspect-ratio: 9 / 16;
-    cursor: pointer;
-    display: grid;
-    grid-template-columns: 0.25fr 130px 0.5fr 130px 0.25fr;
-    grid-template-rows: 0.5fr 0.75fr 0.5fr 2fr 0.7fr 1fr;
-    grid-template-areas:
-        ". body-top body-top body-top ."
-        "title title title title title"
-        "subtitle subtitle subtitle subtitle subtitle "
-        ". body-mid body-mid body-mid ."
-        ". card-action-demo body-bottom card-action-source ."
-        "stack-icons stack-icons stack-icons stack-icons stack-icons";
-    margin-bottom: 4rem;
-    transform-style: preserve-3d;
-    width: 350px;
+	aspect-ratio: 9 / 16;
+	cursor: pointer;
+	display: grid;
+	grid-template-columns: 0.25fr 130px 0.5fr 130px 0.25fr;
+	grid-template-rows: 0.5fr 0.75fr 0.5fr 2fr 0.7fr 1fr;
+	grid-template-areas:
+		". body-top body-top body-top ."
+		"header header header header header"
+		"header header header header header "
+		". body-mid body-mid body-mid ."
+		". card-action-demo body-bottom card-action-source ."
+		"stack-icons stack-icons stack-icons stack-icons stack-icons";
+	margin-bottom: 4rem;
+	transform-style: preserve-3d;
+	width: 350px;
+	/* animation: tilting 6s ease-in-out infinite; */
 }
 
 .cardBody {
-    --aug-tl: 50px;
-    --aug-tr: 30px;
-    --aug-br: 20px;
-    --aug-br-extend2: 33%;
-    --aug-bl: 20px;
-    --aug-bl-extend1: 33%;
-    --aug-border-bg: linear-gradient(150deg, var(--color-pink), var(--color-blue-light));
-    --aug-inlay-all: 4px;
-    --aug-inlay-bg: transparent;
-    background-size: cover;
-    height: 86%;
-    width: 100%;
-    grid-column: 2 / -2;
-    grid-row: body-top-start / body-bottom-end;
-    z-index: 1;
+	--aug-tl: 50px;
+	--aug-tr: 30px;
+	--aug-br: 20px;
+	--aug-br-extend2: 33%;
+	--aug-bl: 20px;
+	--aug-bl-extend1: 33%;
+	--aug-border-bg: linear-gradient(150deg, var(--color-pink), var(--color-blue-light));
+	--aug-inlay-all: 4px;
+	--aug-inlay-bg: transparent;
+	background-size: cover;
+	height: 86%;
+	width: 100%;
+	grid-column: 2 / -2;
+	grid-row: body-top-start / body-bottom-end;
+	z-index: 1;
+}
+
+.cardHeader {
+	grid-area: header;
+	display: grid;
+	grid-template-rows: 0.75fr 0.5fr;
+	grid-template-areas:
+		"title"
+		"subtitle";
+	background: linear-gradient(338deg, rgba(var(--color-blue-light-raw), 0.55), rgba(var(--color-purple-raw), 0.6));
+	padding: 0.5rem 0 0 0.5rem;
+	border: 2px groove rgba(var(--color-pink-raw), 0.6);
+	z-index: 2;
 }
 
 .cardTitle {
-    font-family: Orbitron, sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 36px;
-    line-height: 1.25em;
-    color: #ffffff;
-    text-shadow: 2px 2px var(--color-pink);
-    grid-area: title;
-    z-index: 2;
-    transform: translateZ(80px);
+	font-family: Orbitron, sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 36px;
+	line-height: 1.25em;
+	color: #ffffff;
+	text-shadow: 2px 2px var(--color-pink);
+	grid-area: title;
+	z-index: 2;
+	transform: translateZ(80px);
 }
 
 .cardSubtitle {
-    font-family: Jura, sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 1.25em;
-    color: #ffffff;
-    text-shadow: 2px 2px var(--color-pink);
-    grid-area: subtitle;
-    z-index: 2;
-    transform: translateZ(35px);
+	font-family: Jura, sans-serif;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 1.25em;
+	color: #ffffff;
+	text-shadow: 2px 2px var(--color-pink);
+	grid-area: subtitle;
+	z-index: 2;
+	transform: translateZ(35px);
 }
 
 .btnCardAction {
-    align-items: center;
-    border: none;
-    border-radius: 2px;
-    color: #fff;
-    cursor: pointer;
-    display: flex;
-    font-family: "Orbitron", sans-serif;
-    justify-content: center;
-    padding: 1rem;
-    text-transform: uppercase;
-    transition: all 0.1s ease-in;
+	align-items: center;
+	border: none;
+	border-radius: 2px;
+	color: #fff;
+	cursor: pointer;
+	display: flex;
+	font-family: "Orbitron", sans-serif;
+	justify-content: center;
+	padding: 1rem;
+	text-transform: uppercase;
+	transition: all 0.1s ease-in;
 }
 
 .btnCardAction i {
-    font-size: 1rem;
-    margin-right: 5px;
+	font-size: 1rem;
+	margin-right: 5px;
 }
 
 .btnCardAction:hover {
-    filter: brightness(115%);
+	filter: brightness(115%);
 }
 
 .btnCardAction:active {
-    filter: brightness(85%);
+	filter: brightness(85%);
 }
 
 .btnDemo {
-    --aug-tl: 20px;
-    --aug-border-bg: var(--color-pink);
-    --aug-inlay-all: 2px;
-    --aug-inlay-bg: linear-gradient(300deg, var(--color-pink) -9.08%, var(--color-purple) 83.6%);
-    grid-area: card-action-demo;
-    z-index: 2;
-    transform: translateZ(20px);
+	--aug-tl: 20px;
+	--aug-border-bg: var(--color-pink);
+	--aug-inlay-all: 2px;
+	--aug-inlay-bg: linear-gradient(300deg, var(--color-pink) -9.08%, var(--color-purple) 83.6%);
+	grid-area: card-action-demo;
+	z-index: 2;
+	transform: translateZ(20px);
 }
 
 .btnSource {
-    --aug-tr: 20px;
-    --aug-border-bg: var(--color-blue-light);
-    --aug-inlay-all: 2px;
-    --aug-inlay-bg: linear-gradient(300deg, var(--color-blue-light) -9.08%, var(--color-blue-mid) 83.6%);
-    grid-area: card-action-source;
-    z-index: 2;
-    transform: translateZ(20px);
+	--aug-tr: 20px;
+	--aug-border-bg: var(--color-blue-light);
+	--aug-inlay-all: 2px;
+	--aug-inlay-bg: linear-gradient(300deg, var(--color-blue-light) -9.08%, var(--color-blue-mid) 83.6%);
+	grid-area: card-action-source;
+	z-index: 2;
+	transform: translateZ(20px);
 }
 
 .cardIconStack {
-    grid-area: stack-icons;
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    padding-top: 20px;
-    width: 100%;
+	grid-area: stack-icons;
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+	padding-top: 20px;
+	width: 100%;
 }
 
 .stackIconWrapper {
-    --aug-all-width: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.1s ease-in;
-    transform: translateZ(35px);
+	--aug-all-width: 80px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.1s ease-in;
+	transform: translateZ(35px);
 }
 
 .stackIconWrapper img {
-    width: 60%;
+	width: 60%;
 }
 
 .stackIconWrapper.express {
-    --aug-border-bg: var(--color-express);
-    background: linear-gradient(150deg, transparent, rgba(var(--color-express-raw), 0.5));
+	--aug-border-bg: var(--color-express);
+	background: linear-gradient(150deg, transparent, rgba(var(--color-express-raw), 0.5));
 }
 
 .stackIconWrapper.firebase {
-    --aug-border-bg: var(--color-firebase);
-    background: linear-gradient(150deg, transparent, rgba(var(--color-firebase-raw), 0.5));
+	--aug-border-bg: var(--color-firebase);
+	background: linear-gradient(150deg, transparent, rgba(var(--color-firebase-raw), 0.5));
 }
 
 .stackIconWrapper.java {
-    --aug-border-bg: var(--color-java);
-    background: linear-gradient(150deg, transparent, rgba(var(--color-java-raw), 0.5));
+	--aug-border-bg: var(--color-java);
+	background: linear-gradient(150deg, transparent, rgba(var(--color-java-raw), 0.5));
 }
 
 /* The Java icons a bit tall for its wrapper */
 .stackIconWrapper.java img {
-    width: 50%;
+	width: 50%;
 }
 
 .stackIconWrapper.materialui {
-    --aug-border-bg: var(--color-materialui);
-    background: linear-gradient(150deg, transparent, rgba(var(--color-materialui-raw), 0.5));
+	--aug-border-bg: var(--color-materialui);
+	background: linear-gradient(150deg, transparent, rgba(var(--color-materialui-raw), 0.5));
 }
 
 .stackIconWrapper.matplotlib {
-    --aug-border-bg: var(--color-matplotlib);
-    background: linear-gradient(150deg, transparent, rgba(var(--color-matplotlib-raw), 0.5));
+	--aug-border-bg: var(--color-matplotlib);
+	background: linear-gradient(150deg, transparent, rgba(var(--color-matplotlib-raw), 0.5));
 }
 
 .stackIconWrapper.mongodb {
-    --aug-border-bg: var(--color-mongodb);
-    background: linear-gradient(150deg, transparent, rgba(var(--color-mongodb-raw), 0.5));
+	--aug-border-bg: var(--color-mongodb);
+	background: linear-gradient(150deg, transparent, rgba(var(--color-mongodb-raw), 0.5));
 }
 
 .stackIconWrapper.nodejs {
-    --aug-border-bg: var(--color-nodejs);
-    background: linear-gradient(150deg, transparent, rgba(var(--color-nodejs-raw), 0.5));
+	--aug-border-bg: var(--color-nodejs);
+	background: linear-gradient(150deg, transparent, rgba(var(--color-nodejs-raw), 0.5));
 }
 
 .stackIconWrapper.numpy {
-    --aug-border-bg: var(--color-numpy);
-    background: linear-gradient(150deg, transparent, rgba(var(--color-numpy-raw), 0.5));
+	--aug-border-bg: var(--color-numpy);
+	background: linear-gradient(150deg, transparent, rgba(var(--color-numpy-raw), 0.5));
 }
 
 .stackIconWrapper.python {
-    --aug-border-bg: var(--color-python);
-    background: linear-gradient(150deg, transparent, rgba(var(--color-python-raw), 0.5));
+	--aug-border-bg: var(--color-python);
+	background: linear-gradient(150deg, transparent, rgba(var(--color-python-raw), 0.5));
 }
 
 .stackIconWrapper.react {
-    --aug-border-bg: var(--color-react);
-    background: linear-gradient(150deg, transparent, rgba(var(--color-react-raw), 0.5));
+	--aug-border-bg: var(--color-react);
+	background: linear-gradient(150deg, transparent, rgba(var(--color-react-raw), 0.5));
+}
+
+.stackIconWrapper.redux {
+	--aug-border-bg: var(--color-redux);
+	background: linear-gradient(150deg, transparent, rgba(var(--color-redux-raw), 0.5));
 }
 
 .stackIconWrapper.styledcomponents {
-    --aug-border-bg: var(--color-styledcomponents);
-    background: linear-gradient(150deg, transparent, rgba(var(--color-styledcomponents-raw), 0.5));
+	--aug-border-bg: var(--color-styledcomponents);
+	background: linear-gradient(150deg, transparent, rgba(var(--color-styledcomponents-raw), 0.5));
 }
