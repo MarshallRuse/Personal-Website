@@ -1,17 +1,31 @@
-import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { BrowserRouter, Route, Switch, useLocation } from "react-router-dom";
 
-import HomePage from '../components/HomePage';
-import WorkoutLoggerPage from '../components/WorkoutLoggerPage';
-import TripTrackerPage from '../components/TripTrackerPage';
-import BingoPartyPage from '../components/BingoPartyPage';
-import RoverPage from '../components/RoverPage';
-import Footer from '../components/Footer';
+import HomePage from "../components/HomePage";
+import WorkoutLoggerPage from "../components/WorkoutLoggerPage";
+import TripTrackerPage from "../components/TripTrackerPage";
+import BingoPartyPage from "../components/BingoPartyPage";
+import RoverPage from "../components/RoverPage";
+import Footer from "../components/Footer";
+
+const ScrollToTop = () => {
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "auto",
+        });
+    }, [pathname]);
+
+    return null;
+};
 
 const AppRouter = () => {
-
     return (
         <BrowserRouter>
+            <ScrollToTop />
             <Switch>
                 <Route path='/' component={HomePage} exact />
                 <Route path='/projects/WorkoutLogger' component={WorkoutLoggerPage} exact />
@@ -22,7 +36,7 @@ const AppRouter = () => {
             </Switch>
             <Footer />
         </BrowserRouter>
-    )
-}
+    );
+};
 
 export default AppRouter;
