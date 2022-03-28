@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Container, Grid, Paper, Tooltip, Typography } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import { GitHub, LinkedIn } from "@material-ui/icons";
 
 import HeroBackground from "./elements/HeroBackground";
@@ -12,24 +13,26 @@ import MatrixBG from "./elements/MatrixBG";
 import ProjectCard from "./elements/ProjectCard";
 
 // Logos
-import { makeStyles } from "@material-ui/core/styles";
-import Css3Logo from "../assets/logos/css3.svg";
-import ExpressLogo from "../assets/logos/express.svg";
-import FirebaseLogo from "../assets/logos/firebase.svg";
-import HandlebarsLogo from "../assets/logos/handlebars.svg";
-import Html5Logo from "../assets/logos/html5.svg";
-import JavaLogo from "../assets/logos/java.svg";
-import JavascriptLogo from "../assets/logos/javascript.svg";
-import MaterialUILogo from "../assets/logos/material-ui.svg";
-import MatplotlibLogo from "../assets/logos/matplotlib.svg";
-import MongoDBLogo from "../assets/logos/mongodb.svg";
-import NodejsLogo from "../assets/logos/nodejs.svg";
-import NumpyLogo from "../assets/logos/numpy.svg";
-import PythonLogo from "../assets/logos/python.svg";
-import ReactLogo from "../assets/logos/react.svg";
-import ReduxLogo from "../assets/logos/redux.svg";
-import SassLogo from "../assets/logos/sass.svg";
-import StyledComponentsLogo from "../assets/logos/styledcomponents.png";
+
+import {
+	Css3Logo,
+	ExpressLogo,
+	FirebaseLogo,
+	HandlebarsLogo,
+	Html5Logo,
+	JavaLogo,
+	JavascriptLogo,
+	MaterialUILogo,
+	MatplotlibLogo,
+	MongoDBLogo,
+	NodejsLogo,
+	NumpyLogo,
+	PythonLogo,
+	ReactLogo,
+	ReduxLogo,
+	SassLogo,
+	StyledComponentsLogo,
+} from "../assets/logos/logoIcons.js";
 
 // Images
 import BingoPartyImage from "../assets/images/bingo.jpg";
@@ -39,8 +42,8 @@ import SouthernOntario from "../assets/images/HomePage/SouthernOntario.png";
 import SouthernOntarioAnimatedSVG from "../assets/images/HomePage/svg/SouthernOntarioAnimated.svg";
 import TripTrackerImage from "../assets/images/cityscape-girl-night.jpg";
 import WorkoutLoggerImage from "../assets/images/girl-barbell-curls.jpg";
+import BlogSection from "./BlogSection";
 
-console.log("Southern Ontario: ", SouthernOntario);
 const useStyles = makeStyles((theme) => ({
 	aboutMeParagraph: {
 		color: "#4e4e4e",
@@ -123,10 +126,7 @@ const useStyles = makeStyles((theme) => ({
 		width: "100%",
 	},
 	projectsSection: {
-		//backgroundImage: ["linear-gradient(rgba(34,39,90,0.5), rgba(34,39,90,0.5))", `url(${CodeBackground})`],
-		backgroundSize: "contain",
 		minHeight: "100vh",
-		padding: theme.spacing(8, 0, 10),
 		position: "relative",
 	},
 	sectionHeader: {
@@ -329,7 +329,6 @@ const HomePage = () => {
 				<MatrixBG fps={30} />
 				<Container className={classes.sectionSpacing} maxWidth='xl'>
 					<Typography
-						id='skills-section'
 						variant='h3'
 						align='center'
 						className={classes.sectionHeader}
@@ -420,6 +419,7 @@ const HomePage = () => {
 					</Grid>
 				</Container>
 			</div>
+			<BlogSection />
 			<Container id='about-me-section' className={classes.sectionSpacing} maxWidth='md'>
 				<Typography id='skills-section' variant='h3' align='center' className={classes.sectionHeader}>
 					About Me
