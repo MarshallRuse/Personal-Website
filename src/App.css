@@ -1,4 +1,12 @@
 :root {
+	/* breakpoints 
+		taken from MUI specification */
+	--breakpoint-xs: 0px;
+	--breakpoinr-sm: 600px;
+	--breakpoint-md: 900px;
+	--breakpoint-lg: 1200px;
+	--breakpoint-xl: 1536px;
+	/* colors */
 	--color-purple: rgb(113, 28, 145);
 	--color-purple-raw: 113, 28, 145;
 	--color-pink: rgb(234, 0, 217);
@@ -34,4 +42,8 @@
 	--color-redux-raw: 118, 74, 188;
 	--color-styledcomponents: rgb(241, 160, 219);
 	--color-styledcomponents-raw: 241, 160, 219;
+}
+
+body {
+	font-family: "Jura", sans-serif;
 }

@@ -1,7 +1,8 @@
 import React from "react";
 import { Button, Container, Grid, Paper, Tooltip, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { GitHub, LinkedIn } from "@material-ui/icons";
+import styled from "styled-components";
+import { Email, GitHub, LinkedIn } from "@material-ui/icons";
 
 import HeroBackground from "./elements/HeroBackground";
 import HeaderPhoto from "./elements/HeaderPhoto";
@@ -43,6 +44,80 @@ import SouthernOntarioAnimatedSVG from "../assets/images/HomePage/svg/SouthernOn
 import TripTrackerImage from "../assets/images/cityscape-girl-night.jpg";
 import WorkoutLoggerImage from "../assets/images/girl-barbell-curls.jpg";
 import BlogSection from "./BlogSection";
+import HeaderSubtitle from "./elements/HeaderSubtitle";
+
+const HeaderContainer = styled.div`
+	width: 100%;
+	max-width: 1280px;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	box-sizing: border-box;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 16px;
+	padding-right: 16px;
+
+	@media (min-width: 600px) {
+		padding-left: 24px;
+		padding-right: 24px;
+	}
+`;
+
+const HeaderSubtitleSection = styled.div`
+	@media (max-width: 600px) {
+		word-spacing: 100vw;
+	}
+`;
+
+const HeroButtons = styled.div`
+	justify-self: flex-end;
+	flex: 0 0 0%;
+	margin: 64px;
+`;
+
+const NavList = styled.nav`
+	display: flex;
+	justify-content: space-evenly;
+	padding: 65px 0 40px;
+	@media screen and (max-width: var(--breakpoints-md)) {
+		padding: 40px 0px;
+	}
+
+	@media screen and (max-width: var(--breakpoints-sm)) {
+		padding: 20px 0px 25px;
+	}
+`;
+
+const NavLink = styled.a`
+	color: ${(props) => (props.color ? props.color : "#fff")};
+	display: inline-block;
+	position: relative;
+	text-decoration: none;
+	transition: color 0.25s ease-out;
+
+	&:after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		background-color: var(--color-blue-light);
+		height: 2px;
+		transform: scaleX(0);
+		transform-origin: bottom right;
+		transition: transform 0.25s ease-out;
+		width: 100%;
+	}
+	&:hover,
+	&:focus {
+		color: var(--color-blue-light);
+	}
+	&:hover:after,
+	&:focus:after {
+		transform: scaleX(1);
+		transform-origin: bottom left;
+	}
+`;
 
 const useStyles = makeStyles((theme) => ({
 	aboutMeParagraph: {
@@ -91,21 +166,10 @@ const useStyles = makeStyles((theme) => ({
 	},
 	navLink: {
 		textDecoration: "none",
-		color: "#a0a0a0",
+		color: "#fff",
 		transition: "color 0.4s",
 		"&:hover": {
 			color: "#fff",
-		},
-	},
-	navList: {
-		display: "flex",
-		justifyContent: "space-evenly",
-		padding: "65px 0 40px",
-		[theme.breakpoints.down("md")]: {
-			padding: "40px 0px",
-		},
-		[theme.breakpoints.down("sm")]: {
-			padding: "20px 0px 25px",
 		},
 	},
 	paper: {
@@ -151,42 +215,24 @@ const HomePage = () => {
 		<main>
 			{/* Hero unit */}
 			<HeroBackground backgroundImage={SouthernOntario} backgroundSVG={SouthernOntarioAnimatedSVG}>
-				<Container maxWidth='md'>
+				<HeaderContainer>
 					<FadeInText animationDelay={"6.5s"} animationDuration={"2s"}>
-						<div className={classes.navList}>
-							<a href='#skills-section' className={classes.navLink}>
-								Skills
-							</a>
-							<a href='#projects-section' className={classes.navLink}>
-								Projects
-							</a>
-							<a href='#about-me-section' className={classes.navLink}>
-								About Me
-							</a>
-							<a href='#contact-section' className={classes.navLink}>
-								Contact
-							</a>
-						</div>
+						<NavList>
+							<NavLink href='#skills-section'>Skills</NavLink>
+							<NavLink href='#projects-section'>Projects</NavLink>
+							<NavLink href='#blog-section'>Blog</NavLink>
+							<NavLink href='#about-me-section'>About Me</NavLink>
+							<NavLink href='#contact-section'>Contact</NavLink>
+						</NavList>
 					</FadeInText>
-					<Grid container justify='center' alignItems='center'>
-						<Grid item xs={6} sm={4}>
-							<HeaderPhoto />
-						</Grid>
-					</Grid>
 					<HeaderTitle />
-					<FadeInText animationDelay={"6.5s"} animationDuration={"2s"}>
-						<Typography variant='body1' align='left' color='inherit' paragraph>
-							&nbsp;&nbsp;&nbsp;&nbsp;Hello, I’m Marshall. I'm an aspiring web and mobile developer in the
-							Greater Toronto Area.
-							<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;I studied Life Sciences and Computing at Queen’s University, and got
-							a Bachelors degree for each. In addition to relevant courses taken, I’m a self-taught
-							Node.js and React JS developer. I learned React to gain transferable skills and flexibility
-							to interoperate between web and mobile app development, and will soon be venturing into
-							React Native development.
-						</Typography>
-					</FadeInText>
-					<div className={classes.heroButtons}>
+					<HeaderSubtitleSection>
+						<FadeInText animationDelay={"6.5s"} animationDuration={"2s"}>
+							<HeaderSubtitle />
+						</FadeInText>
+					</HeaderSubtitleSection>
+
+					<HeroButtons className='heroButtons'>
 						<Grid container spacing={2} justify='center'>
 							<Grid item>
 								<BounceInForwardElement animationDelay={"7s"}>
@@ -219,8 +265,8 @@ const HomePage = () => {
 								</BounceInForwardElement>
 							</Grid>
 						</Grid>
-					</div>
-				</Container>
+					</HeroButtons>
+				</HeaderContainer>
 			</HeroBackground>
 			<Container className={classes.sectionSpacing} maxWidth='md'>
 				<Typography id='skills-section' variant='h3' align='center' className={classes.sectionHeader}>
@@ -471,7 +517,20 @@ const HomePage = () => {
 					Contact
 				</Typography>
 				<Typography variant='h6' align='center'>
-					<strong>Email: </strong> ruse.marshall@gmail.com
+					<NavLink
+						href='mailto:ruse.marshall@gmail.com'
+						color='var(--color-blue-mid)'
+						style={{
+							display: "flex",
+							gap: "10px",
+							alignItems: "center",
+							margin: "0 auto",
+							width: "max-content",
+						}}
+					>
+						<Email />
+						ruse.marshall@gmail.com
+					</NavLink>
 				</Typography>
 			</Container>
 		</main>

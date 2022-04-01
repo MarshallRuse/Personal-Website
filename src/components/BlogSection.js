@@ -238,7 +238,7 @@ const BlogSection = () => {
 	const flagDoneTypingBlog = () => setTimeout(() => setBlogTypingDone(true), headlineEnterDelay);
 
 	return (
-		<BlogSectionContainer ref={ref}>
+		<BlogSectionContainer id='blog-section' ref={ref}>
 			<GlitchingTypingText
 				element='h3'
 				styling={SectionHeaderStyling}

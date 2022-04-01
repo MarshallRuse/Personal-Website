@@ -1,66 +1,27 @@
-import React from 'react';
-// import { withStyles } from '@material-ui/styles';
-import styled, { keyframes } from 'styled-components';
-import { Typography } from '@material-ui/core';
+import React from "react";
+import styled from "styled-components";
 
-const bounceInFwd = keyframes`
-        0% {
-            transform: scale(0);
-            animation-timing-function: ease-in;
-            opacity: 0;
-        }
-        38% {
-            
-            transform: scale(1);
-            animation-timing-function: ease-out;
-            opacity: 1;
-        }
-        55% {
-            transform: scale(0.7);
-            animation-timing-function: ease-in;
-        }
-        72% {
-            transform: scale(1);
-            animation-timing-function: ease-out;
-        }
-        81% {
-            transform: scale(0.84);
-            animation-timing-function: ease-in;
-        }
-        89% 
-            transform: scale(1);
-            animation-timing-function: ease-out;
-        }
-        95% {
-            transform: scale(0.95);
-            animation-timing-function: ease-in;
-        }
-        100% {
-            transform: scale(1);
-            animation-timing-function: ease-out;
-        }
+const Title = styled.h1`
+	color: var(--color-pink);
+	font-family: "Orbitron", sans-serif;
+	font-size: 4rem;
+	font-style: italic;
+	margin-top: calc(1em + 105px);
+	position: relative;
+	text-align: center;
+
+	&::after {
+		color: #fff;
+		content: "Marshall Ruse";
+		display: inline;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(calc(-50% - 4px), calc(-50% - 4px));
+		width: 100%;
+	}
 `;
 
-
-const StyledText = styled.div`
-    animation: ${bounceInFwd} 1.1s cubic-bezier(0.950, 0.050, 0.795, 0.035) 5s both;
-`;
-
-
-class HeaderTitle extends React.Component {
-
-    render() {
-
-        return (
-            <>
-                <StyledText>
-                    <Typography component="h1" variant="h2" align="center" color="inherit" gutterBottom>
-                       Marshall Ruse
-                    </Typography>
-                </StyledText>
-            </>
-        )
-    }
-}
+const HeaderTitle = () => <Title>Marshall Ruse</Title>;
 
 export default HeaderTitle;
