@@ -7,6 +7,7 @@
 		"@material-ui/core": "^4.7.0",
 		"@material-ui/icons": "^4.5.1",
 		"augmented-ui": "^2.0.0",
+		"color2k": "^2.0.0",
 		"framer-motion": "^4.1.17",
 		"react": "^16.12.0",
 		"react-dom": "^16.12.0",

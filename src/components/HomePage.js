@@ -45,6 +45,7 @@ import TripTrackerImage from "../assets/images/cityscape-girl-night.jpg";
 import WorkoutLoggerImage from "../assets/images/girl-barbell-curls.jpg";
 import BlogSection from "./BlogSection";
 import HeaderSubtitle from "./elements/HeaderSubtitle";
+import SkillsSection from "./SkillsSection";
 
 const HeaderContainer = styled.div`
 	width: 100%;
@@ -65,6 +66,7 @@ const HeaderContainer = styled.div`
 `;
 
 const HeaderSubtitleSection = styled.div`
+	overflow: hidden;
 	@media (max-width: 600px) {
 		word-spacing: 100vw;
 	}
@@ -189,6 +191,10 @@ const useStyles = makeStyles((theme) => ({
 		borderRadius: "50%",
 		width: "100%",
 	},
+	projectBox: {
+		display: "flex",
+		justifyContent: "center",
+	},
 	projectsSection: {
 		minHeight: "100vh",
 		position: "relative",
@@ -268,112 +274,10 @@ const HomePage = () => {
 					</HeroButtons>
 				</HeaderContainer>
 			</HeroBackground>
-			<Container className={classes.sectionSpacing} maxWidth='md'>
-				<Typography id='skills-section' variant='h3' align='center' className={classes.sectionHeader}>
-					Skills
-				</Typography>
-				<Paper className={classes.paper}>
-					<Grid container spacing={3} justify='space-evenly' alignItems='stretch'>
-						<Grid item xs={12}>
-							<Typography variant='h5' align='center' className={classes.subsectionHeader}>
-								Languages
-							</Typography>
-						</Grid>
-						<Tooltip title='HTML5' placement='top'>
-							<Grid item xs={6} sm={3} md={2} align='center' height='100%'>
-								<AnimatedIcon icon={Html5Logo} altText={"HTML 5 Logo"} iconNum={1} />
-							</Grid>
-						</Tooltip>
-						<Tooltip title='CSS3' placement='top'>
-							<Grid item xs={6} sm={3} md={2} align='center' height='100%'>
-								<AnimatedIcon icon={Css3Logo} altText={"CSS 3 Logo"} iconNum={2} />
-							</Grid>
-						</Tooltip>
-						<Tooltip title='Javascript' placement='top'>
-							<Grid item xs={6} sm={3} md={2} align='center' height='100%'>
-								<AnimatedIcon icon={JavascriptLogo} altText={"Javascript Logo"} iconNum={3} />
-							</Grid>
-						</Tooltip>
-						<Tooltip title='Python' placement='top'>
-							<Grid item xs={6} sm={3} md={2} align='center' height='100%'>
-								<AnimatedIcon icon={PythonLogo} altText={"Python Logo"} iconNum={4} />
-							</Grid>
-						</Tooltip>
-						<Tooltip title='Java' placement='top'>
-							<Grid item xs={6} sm={3} md={2} align='center' height='100%'>
-								<AnimatedIcon icon={JavaLogo} altText={"Java Logo"} iconNum={5} />
-							</Grid>
-						</Tooltip>
-					</Grid>
-				</Paper>
-				<Paper className={classes.paper}>
-					<Grid container spacing={3} justify='space-evenly' alignItems='stretch'>
-						<Grid item xs={12}>
-							<Typography variant='h5' align='center' className={classes.subsectionHeader}>
-								Frameworks
-							</Typography>
-						</Grid>
-						<Tooltip title='React JS' placement='top'>
-							<Grid item xs={6} sm={3} md={2} align='center' height='100%'>
-								<AnimatedIcon icon={ReactLogo} altText={"React Logo"} iconNum={1} />
-							</Grid>
-						</Tooltip>
-						<Tooltip title='Redux' placement='top'>
-							<Grid item xs={6} sm={3} md={2} align='center' height='100%'>
-								<AnimatedIcon icon={ReduxLogo} altText={"Redux Logo"} iconNum={2} />
-							</Grid>
-						</Tooltip>
-						<Tooltip title='Express' placement='top'>
-							<Grid item xs={6} sm={3} md={2} align='center' height='100%'>
-								<AnimatedIcon icon={ExpressLogo} altText={"Express Logo"} iconNum={3} />
-							</Grid>
-						</Tooltip>
-						<Tooltip title='MongoDB' placement='top'>
-							<Grid item xs={6} sm={3} md={2} align='center' height='100%'>
-								<AnimatedIcon icon={MongoDBLogo} altText={"MongoDB Logo"} iconNum={4} />
-							</Grid>
-						</Tooltip>
-						<Tooltip title='Node.js' placement='top'>
-							<Grid item xs={6} sm={3} md={2} align='center' height='100%'>
-								<AnimatedIcon icon={NodejsLogo} altText={"Node.js Logo"} iconNum={5} />
-							</Grid>
-						</Tooltip>
-						<Tooltip title='Firebase' placement='top'>
-							<Grid item xs={6} sm={3} md={2} align='center' height='100%'>
-								<AnimatedIcon icon={FirebaseLogo} altText={"Firebase Logo"} iconNum={6} />
-							</Grid>
-						</Tooltip>
-					</Grid>
-				</Paper>
-				<Paper className={classes.paper}>
-					<Grid container spacing={3} justify='space-evenly' alignItems='stretch'>
-						<Grid item xs={12}>
-							<Typography variant='h5' align='center' className={classes.subsectionHeader}>
-								Libraries
-							</Typography>
-						</Grid>
-						<Tooltip title='Handlebars' placement='top'>
-							<Grid item xs={6} sm={3} md={2} align='center' className={classes.logoBox}>
-								<AnimatedIcon icon={HandlebarsLogo} altText={"Handlebars Logo"} iconNum={1} />
-							</Grid>
-						</Tooltip>
-						<Tooltip title='Material-UI' placement='top'>
-							<Grid item xs={6} sm={3} md={2} align='center' height='100%'>
-								<AnimatedIcon icon={MaterialUILogo} altText={"Material UI Logo"} iconNum={2} />
-							</Grid>
-						</Tooltip>
-						<Tooltip title='Sass' placement='top'>
-							<Grid item xs={6} sm={3} md={2} align='center' height='100%'>
-								<AnimatedIcon icon={SassLogo} altText={"Sass Logo"} iconNum={3} />
-							</Grid>
-						</Tooltip>
-					</Grid>
-				</Paper>
-			</Container>
-
+			<SkillsSection />
 			<div id='projects-section' className={classes.projectsSection}>
 				<MatrixBG fps={30} />
-				<Container className={classes.sectionSpacing} maxWidth='xl'>
+				<Container className={classes.sectionSpacing} maxWidth='xl' style={{ paddingTop: "360px" }}>
 					<Typography
 						variant='h3'
 						align='center'
@@ -383,7 +287,7 @@ const HomePage = () => {
 						Projects
 					</Typography>
 					<Grid container spacing={4} justify='space-apart'>
-						<Grid item xs={12} md={6} lg={4}>
+						<Grid item xs={12} md={6} lg={4} className={classes.projectBox}>
 							<ProjectCard
 								cardImage={WorkoutLoggerImage}
 								cardTitle='Workout Logger'
@@ -399,7 +303,7 @@ const HomePage = () => {
 								]}
 							/>
 						</Grid>
-						<Grid item xs={12} md={6} lg={4}>
+						<Grid item xs={12} md={6} lg={4} className={classes.projectBox}>
 							<ProjectCard
 								cardImage={TripTrackerImage}
 								cardTitle='Trip Tracker'
@@ -416,7 +320,7 @@ const HomePage = () => {
 								]}
 							/>
 						</Grid>
-						<Grid item xs={12} md={6} lg={4}>
+						<Grid item xs={12} md={6} lg={4} className={classes.projectBox}>
 							<ProjectCard
 								cardImage={BingoPartyImage}
 								cardTitle='Bingo Party'
@@ -433,7 +337,7 @@ const HomePage = () => {
 								]}
 							/>
 						</Grid>
-						<Grid item xs={12} md={6} lg={4}>
+						<Grid item xs={12} md={6} lg={4} className={classes.projectBox}>
 							<ProjectCard
 								cardImage={RoverFollowerImage}
 								cardTitle='Rover Follower'
@@ -449,7 +353,7 @@ const HomePage = () => {
 								]}
 							/>
 						</Grid>
-						<Grid item xs={12} md={6} lg={4}>
+						<Grid item xs={12} md={6} lg={4} className={classes.projectBox}>
 							<ProjectCard
 								cardImage={PersonalWebsiteImage}
 								cardTitle='marshallruse.com'

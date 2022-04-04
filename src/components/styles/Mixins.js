@@ -66,3 +66,10 @@ export const CardText = css`
 		opacity: 1;
 	}
 `;
+
+export const GlowingText = css`
+	text-shadow: ${(
+		props
+	) => `0 0 2px #fff, 0 0 1px #fff, 0 0 1px #fff, 0 0 42px ${props.glowColor}, 0 0 82px ${props.glowColor}, 0 0 92px ${props.glowColor}, 0 0 102px ${props.glowColor},
+		0 0 151px ${props.glowColor}`};
+`;
