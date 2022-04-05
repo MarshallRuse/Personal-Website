@@ -5,6 +5,9 @@ import { useInView } from "react-intersection-observer";
 import { convertCSSVar } from "../styles/utils";
 
 const GlowEffect = styled.div`
+    align-items: center;
+    display: flex;
+    height: 100%;
     position: relative;
 
     & .overlapped {

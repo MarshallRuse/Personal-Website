@@ -65,6 +65,7 @@ const IconRow = styled.div`
 `;
 
 const IconBox = styled.div`
+    ${(props) => props.styling};
     flex-basis: 50%;
     flex-grow: 0;
     max-width: 50%;
@@ -163,7 +164,7 @@ const SkillsSection = () => {
             </IconRow>
             <IconRow>
                 <SectionSubheader>Libraries</SectionSubheader>
-                <IconBox>
+                <IconBox styling={{ alignSelf: "stretch" }}>
                     <GlowingIcon title='Handlebars' glowColor={"var(--color-handlebars)"} strokeWidth={8}>
                         <HandlebarsLogo />
                     </GlowingIcon>
