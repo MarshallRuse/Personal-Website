@@ -1,19 +1,10 @@
 import React from "react";
-import { Button, Container, Grid, Paper, Tooltip, Typography } from "@material-ui/core";
+import { Button, Container, Grid, Paper, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import styled from "styled-components";
 import { Email, GitHub, LinkedIn } from "@material-ui/icons";
 
-import HeroBackground from "./elements/HeroBackground";
-import HeaderTitle from "./elements/HeaderTitle";
-import FadeInText from "./elements/FadeInText";
-import BounceInForwardElement from "./elements/BounceInForwardElement";
-import MatrixBG from "./elements/MatrixBG";
-import ProjectCard from "./elements/ProjectCard";
-import { NavLink } from "./styles/styledComponents";
-
 // Logos
-
 import {
     ExpressLogo,
     FirebaseLogo,
@@ -30,17 +21,23 @@ import {
 } from "../assets/logos/logoIcons.js";
 
 // Images
-import BingoPartyImage from "../assets/images/bingo.jpg";
-import PersonalWebsiteImage from "../assets/images/HomePage/PersonalWebsitePortrait.png";
-import RoverFollowerImage from "../assets/images/curiosity-rover-mars.jpg";
 import SouthernOntario from "../assets/images/HomePage/SouthernOntario.png";
 import SouthernOntarioAnimatedSVG from "../assets/images/HomePage/svg/SouthernOntarioAnimated.svg";
-import TripTrackerImage from "../assets/images/cityscape-girl-night.jpg";
-import WorkoutLoggerImage from "../assets/images/girl-barbell-curls.jpg";
+
+// Sections
 import BlogSection from "./BlogSection";
-import HeaderSubtitle from "./elements/HeaderSubtitle";
 import SkillsSection from "./SkillsSection";
+
+// Elements
+import HeaderSubtitle from "./elements/HeaderSubtitle";
 import NavBar from "./elements/NavBar";
+import { NavLink, SectionTitle } from "./styles/styledComponents";
+import HeroBackground from "./elements/HeroBackground";
+import HeaderTitle from "./elements/HeaderTitle";
+import FadeInText from "./elements/FadeInText";
+import BounceInForwardElement from "./elements/BounceInForwardElement";
+import MatrixBG from "./elements/MatrixBG";
+import ProjectCard from "./elements/ProjectCard";
 
 const HeaderContainer = styled.div`
     width: 100%;
@@ -147,7 +144,7 @@ const HomePage = () => {
     const classes = useStyles();
 
     return (
-        <main>
+        <main style={{ backgroundColor: "#000" }}>
             <FadeInText
                 animationDelay={"6.5s"}
                 animationDuration={"2s"}
@@ -205,18 +202,11 @@ const HomePage = () => {
             <div id='projects-section' className={classes.projectsSection}>
                 <MatrixBG fps={30} />
                 <Container className={classes.sectionSpacing} maxWidth='xl' style={{ paddingTop: "360px" }}>
-                    <Typography
-                        variant='h3'
-                        align='center'
-                        className={classes.sectionHeader}
-                        style={{ color: "#fff", position: "relative", pointerEvents: "none" }}
-                    >
-                        Projects
-                    </Typography>
+                    <SectionTitle element='h3'>Projects</SectionTitle>
                     <Grid container spacing={4} justify='space-apart'>
                         <Grid item xs={12} md={6} lg={4} className={classes.projectBox}>
                             <ProjectCard
-                                cardImage={WorkoutLoggerImage}
+                                cardImage='Home/girl-barbell-curls'
                                 cardTitle='Workout Logger'
                                 cardSubtitle='Record reps, sets, and weights'
                                 projectPageLink='projects/WorkoutLogger'
@@ -232,7 +222,7 @@ const HomePage = () => {
                         </Grid>
                         <Grid item xs={12} md={6} lg={4} className={classes.projectBox}>
                             <ProjectCard
-                                cardImage={TripTrackerImage}
+                                cardImage='Home/cityscape-girl-night'
                                 cardTitle='Trip Tracker'
                                 cardSubtitle='Track expenses in 30 currencies'
                                 projectPageLink='projects/TripTracker'
@@ -249,7 +239,7 @@ const HomePage = () => {
                         </Grid>
                         <Grid item xs={12} md={6} lg={4} className={classes.projectBox}>
                             <ProjectCard
-                                cardImage={BingoPartyImage}
+                                cardImage='Home/bingo'
                                 cardTitle='Bingo Party'
                                 cardSubtitle='Bingo in a browser'
                                 projectPageLink='/projects/BingoParty'
@@ -266,7 +256,7 @@ const HomePage = () => {
                         </Grid>
                         <Grid item xs={12} md={6} lg={4} className={classes.projectBox}>
                             <ProjectCard
-                                cardImage={RoverFollowerImage}
+                                cardImage='Home/curiosity-rover-mars'
                                 cardTitle='Rover Follower'
                                 cardSubtitle='Automated convoy of simulated Mars rovers'
                                 projectPageLink='/projects/RoverFollower'
@@ -282,7 +272,7 @@ const HomePage = () => {
                         </Grid>
                         <Grid item xs={12} md={6} lg={4} className={classes.projectBox}>
                             <ProjectCard
-                                cardImage={PersonalWebsiteImage}
+                                cardImage='Home/PersonalWebsitePortrait'
                                 cardTitle='marshallruse.com'
                                 cardSubtitle='This website!'
                                 sourceLink='https://github.com/MarshallRuse/Personal-Website'

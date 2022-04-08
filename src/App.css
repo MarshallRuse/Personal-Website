@@ -1,59 +1,60 @@
 :root {
-	/* breakpoints 
+    /* breakpoints 
 		taken from MUI specification */
-	--breakpoint-xs: 0px;
-	--breakpoint-sm: 600px;
-	--breakpoint-md: 900px;
-	--breakpoint-lg: 1200px;
-	--breakpoint-xl: 1536px;
-	/* colors */
-	--color-purple: rgb(113, 28, 145);
-	--color-purple-raw: 113, 28, 145;
-	--color-pink: rgb(234, 0, 217);
-	--color-pink-raw: 234, 0, 217;
-	--color-blue-light: rgb(10, 189, 198);
-	--color-blue-light-raw: 10, 189, 198;
-	--color-blue-mid: #133e7c;
-	--color-blue-dark: rgb(9, 24, 51);
-	--color-blue-dark-raw: 9, 24, 51;
-	--color-yellow: #f9c434;
-	--color-orange: #f99634;
-	--color-css3: rgb(21, 114, 182);
-	--color-css3-raw: 21, 114, 182;
-	--color-express: #fff;
-	--color-express-raw: 255, 255, 255;
-	--color-firebase: rgb(245, 130, 32);
-	--color-firebase-raw: 245, 130, 32;
-	--color-handlebars: rgb(66, 52, 38);
-	--color-handlebars-raw: 66, 52, 38;
-	--color-html5: rgb(228, 77, 38);
-	--color-html5-raw: 228, 77, 38;
-	--color-java: rgb(231, 111, 0);
-	--color-java-raw: 231, 111, 0;
-	--color-javascript: rgb(240, 219, 79);
-	--color-javascript-raw: 240, 219, 79;
-	--color-materialui: rgb(0, 176, 255);
-	--color-materialui-raw: 0, 176, 255;
-	--color-matplotlib: rgb(207, 205, 217);
-	--color-matplotlib-raw: 207, 205, 217;
-	--color-mongodb: rgba(67, 153, 52);
-	--color-mongodb-raw: 75, 153, 52;
-	--color-nodejs: rgb(121, 205, 41);
-	--color-nodejs-raw: 121, 205, 41;
-	--color-numpy: rgb(76, 171, 207);
-	--color-numpy-raw: 76, 171, 207;
-	--color-python: rgb(255, 212, 69);
-	--color-python-raw: 255, 212, 69;
-	--color-react: rgb(97, 218, 251);
-	--color-react-raw: 97, 218, 251;
-	--color-redux: rgb(118, 74, 188);
-	--color-redux-raw: 118, 74, 188;
-	--color-sass: rgb(205, 103, 153);
-	--color-sass-raw: 205, 103, 153;
-	--color-styledcomponents: rgb(241, 160, 219);
-	--color-styledcomponents-raw: 241, 160, 219;
+    --breakpoint-xs: 0px;
+    --breakpoint-sm: 600px;
+    --breakpoint-md: 900px;
+    --breakpoint-lg: 1200px;
+    --breakpoint-xl: 1536px;
+    /* colors */
+    --color-purple: rgb(113, 28, 145);
+    --color-purple-raw: 113, 28, 145;
+    --color-pink: rgb(234, 0, 217);
+    --color-pink-raw: 234, 0, 217;
+    --color-blue-light: rgb(10, 189, 198);
+    --color-blue-light-raw: 10, 189, 198;
+    --color-blue-mid: #133e7c;
+    --color-blue-dark: rgb(9, 24, 51);
+    --color-blue-dark-raw: 9, 24, 51;
+    --color-yellow: #f9c434;
+    --color-orange: #f99634;
+    --color-css3: rgb(21, 114, 182);
+    --color-css3-raw: 21, 114, 182;
+    --color-express: #fff;
+    --color-express-raw: 255, 255, 255;
+    --color-firebase: rgb(245, 130, 32);
+    --color-firebase-raw: 245, 130, 32;
+    --color-handlebars: rgb(66, 52, 38);
+    --color-handlebars-raw: 66, 52, 38;
+    --color-html5: rgb(228, 77, 38);
+    --color-html5-raw: 228, 77, 38;
+    --color-java: rgb(231, 111, 0);
+    --color-java-raw: 231, 111, 0;
+    --color-javascript: rgb(240, 219, 79);
+    --color-javascript-raw: 240, 219, 79;
+    --color-materialui: rgb(0, 176, 255);
+    --color-materialui-raw: 0, 176, 255;
+    --color-matplotlib: rgb(207, 205, 217);
+    --color-matplotlib-raw: 207, 205, 217;
+    --color-mongodb: rgba(67, 153, 52);
+    --color-mongodb-raw: 75, 153, 52;
+    --color-nodejs: rgb(121, 205, 41);
+    --color-nodejs-raw: 121, 205, 41;
+    --color-numpy: rgb(76, 171, 207);
+    --color-numpy-raw: 76, 171, 207;
+    --color-python: rgb(255, 212, 69);
+    --color-python-raw: 255, 212, 69;
+    --color-react: rgb(97, 218, 251);
+    --color-react-raw: 97, 218, 251;
+    --color-redux: rgb(118, 74, 188);
+    --color-redux-raw: 118, 74, 188;
+    --color-sass: rgb(205, 103, 153);
+    --color-sass-raw: 205, 103, 153;
+    --color-styledcomponents: rgb(241, 160, 219);
+    --color-styledcomponents-raw: 241, 160, 219;
 }
 
 body {
-	font-family: "Jura", sans-serif;
+    background-color: #000;
+    font-family: "Jura", sans-serif;
 }

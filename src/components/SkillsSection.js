@@ -14,8 +14,8 @@ import { ReactComponent as PythonLogo } from "../assets/logos/colorless/python.s
 import { ReactComponent as ReactLogo } from "../assets/logos/colorless/react.svg";
 import { ReactComponent as ReduxLogo } from "../assets/logos/colorless/redux.svg";
 import { ReactComponent as SassLogo } from "../assets/logos/colorless/sass.svg";
-import breakpoints from "./styles/breakpoints.js";
 import GlowingIcon from "./elements/GlowingIcon.js";
+import { IconRow, IconBox, SubSubsectionTitle } from "./styles/styledComponents";
 import { GlowingText } from "./styles/Mixins";
 import { convertCSSVar } from "./styles/utils";
 
@@ -41,54 +41,6 @@ const SectionHeader = styled.h3`
     ${GlowingText}
 `;
 
-const SectionSubheader = styled.h4`
-    color: #fff;
-    font-family: "Orbitron", sans-serif;
-    flex: 1 0 100%;
-    font-size: 1.5rem;
-    font-weight: 400;
-    line-height: 1.334;
-    letter-spacing: 0em;
-    margin: 0;
-    padding: 20px 0;
-    text-align: center;
-`;
-
-const IconRow = styled.div`
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin: 1.5rem;
-    margin-bottom: 4rem;
-    row-gap: 2rem;
-`;
-
-const IconBox = styled.div`
-    ${(props) => props.styling};
-    flex-basis: 50%;
-    flex-grow: 0;
-    max-width: 50%;
-    padding: 1rem;
-
-    @media (min-width: ${breakpoints.sm}) {
-        flex-basis: 25%;
-        flex-grow: 0;
-        max-width: 25%;
-    }
-
-    @media (min-width: ${breakpoints.md}) {
-        flex-basis: 16.67%;
-        flex-grow: 0;
-        max-width: 16.67%;
-    }
-    @media (min-width: ${breakpoints.lg}) {
-        flex-basis: 12.5%;
-        flex-grow: 0;
-        max-width: 12.5%;
-    }
-`;
-
 // hero background: make linear gradient linear-gradient(to bottom,#2a2552,60%,transparent, var(--color-blue-dark))
 
 // projects section:
@@ -102,7 +54,7 @@ const SkillsSection = () => {
                 Skills
             </SectionHeader>
             <IconRow>
-                <SectionSubheader>Languages</SectionSubheader>
+                <SubSubsectionTitle element='h4'>Languages</SubSubsectionTitle>
                 <IconBox>
                     <GlowingIcon title='HTML5' glowColor={"var(--color-html5)"}>
                         <Html5Logo />
@@ -130,7 +82,7 @@ const SkillsSection = () => {
                 </IconBox>
             </IconRow>
             <IconRow>
-                <SectionSubheader>Frameworks</SectionSubheader>
+                <SubSubsectionTitle element='h4'>Frameworks</SubSubsectionTitle>
                 <IconBox>
                     <GlowingIcon title='React' glowColor={"var(--color-react)"}>
                         <ReactLogo />
@@ -163,7 +115,7 @@ const SkillsSection = () => {
                 </IconBox>
             </IconRow>
             <IconRow>
-                <SectionSubheader>Libraries</SectionSubheader>
+                <SubSubsectionTitle element='h4'>Libraries</SubSubsectionTitle>
                 <IconBox styling={{ alignSelf: "stretch" }}>
                     <GlowingIcon title='Handlebars' glowColor={"var(--color-handlebars)"} strokeWidth={8}>
                         <HandlebarsLogo />
