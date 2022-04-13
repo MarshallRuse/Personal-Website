@@ -5,32 +5,6 @@ import { useInView } from "react-intersection-observer";
 import { convertCSSVar } from "../styles/utils";
 
 const GlowEffect = styled.div`
-    align-items: center;
-    display: flex;
-    height: 100%;
-    position: relative;
-
-    & .overlapped {
-        width: 100%;
-    }
-
-    & .overlapping {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        transition: all 0.3s ease-in;
-        width: 100%;
-    }
-
-    & .overlapping-text {
-        position: absolute;
-        bottom: -60%;
-        left: 50%;
-        transform: translateX(-50%);
-        transition: all 0.3s ease-in;
-    }
-
     & .dim {
         filter: saturate(0.5) brightness(0.6);
 
@@ -63,6 +37,34 @@ const GlowEffect = styled.div`
     }
 `;
 
+const FlexContainer = styled.div`
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+`;
+const RelativeContainer = styled.div`
+    height: 100%;
+    position: relative;
+
+    & .overlapped {
+        width: 100%;
+    }
+
+    & .overlapping {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 0.3s ease-in;
+        width: 100%;
+    }
+
+    & .text {
+        margin: 0;
+    }
+`;
+
 const Title = styled.p`
     color: #fff;
     font-family: "Jura", sans-serif;
@@ -83,14 +85,20 @@ const GlowingIcon = (props) => {
 
     return (
         <GlowEffect glowColor={translatedGlowColor} strokeWidth={strokeWidth} inView={inView} ref={ref}>
-            <div className='overlapped dim'>{children}</div>
-            <div className='overlapping glowing'>{children}</div>
-            <Title className='overlapping-text dim' glowColor={translatedGlowColor} inView={inView}>
-                {title}
-            </Title>
-            <Title className='overlapping-text glowing' glowColor={translatedGlowColor} inView={inView}>
-                {title}
-            </Title>
+            <FlexContainer>
+                <RelativeContainer>
+                    <div className='overlapped dim'>{children}</div>
+                    <div className='overlapping glowing'>{children}</div>
+                </RelativeContainer>
+                <RelativeContainer>
+                    <Title className='overlapped text dim' glowColor={translatedGlowColor} inView={inView}>
+                        {title}
+                    </Title>
+                    <Title className='overlapping text glowing' glowColor={translatedGlowColor} inView={inView}>
+                        {title}
+                    </Title>
+                </RelativeContainer>
+            </FlexContainer>
         </GlowEffect>
     );
 };

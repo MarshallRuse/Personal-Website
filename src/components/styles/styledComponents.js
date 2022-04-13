@@ -99,7 +99,7 @@ export const NavLink = styled.a`
 `;
 
 export const IconRow = styled.div`
-    align-items: center;
+    align-items: baseline;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
