@@ -7,28 +7,41 @@ import { ReactComponent as MaterialUILogo } from "../assets/logos/colorless/mate
 import { ReactComponent as FirebaseLogo } from "../assets/logos/colorless/firebase.svg";
 
 const carouselImages = [
-    { imageSrc: "WorkoutLogger/WorkoutLoggerAuthPage", description: "The Sign-Up and Login Page for the app" },
-    { imageSrc: "WorkoutLogger/WorkoutLoggerWorkoutsPage", description: "All of your workouts, sorted by date" },
     {
-        imageSrc: "WorkoutLogger/WorkoutLoggerWorkoutInstancePage",
+        imageSrc: "WorkoutLogger/WorkoutLoggerAuthPageLandscape",
+        smallScreenAltSrc: "WorkoutLogger/WorkoutLoggerAuthPage",
+        description: "The Sign-Up and Login Page for the app",
+    },
+    {
+        imageSrc: "WorkoutLogger/WorkoutLoggerWorkoutsPageLandscape",
+        smallScreenAltSrc: "WorkoutLogger/WorkoutLoggerWorkoutsPage",
+        description: "All of your workouts, sorted by date",
+    },
+    {
+        imageSrc: "WorkoutLogger/WorkoutLoggerWorkoutInstancePageLandscape",
+        smallScreenAltSrc: "WorkoutLogger/WorkoutLoggerWorkoutInstancePage",
         description: "The page displaying exercises completed for each workout",
     },
     {
-        imageSrc: "WorkoutLogger/WorkoutLoggerExerciseInstancePageUnilateral",
+        imageSrc: "WorkoutLogger/WorkoutLoggerExerciseInstancePageUnilateralLandscape",
+        smallScreenAltSrc: "WorkoutLogger/WorkoutLoggerExerciseInstancePageUnilateral",
         description:
             "The page for each exercise instance - this example is a unilateral exercise (both left- and right-side sets)",
     },
     {
-        imageSrc: "WorkoutLogger/WorkoutLoggerExerciseInstancePageOptions",
+        imageSrc: "WorkoutLogger/WorkoutLoggerExerciseInstancePageOptionsLandscape",
+        smallScreenAltSrc: "WorkoutLogger/WorkoutLoggerExerciseInstancePageOptions",
         description: "Each set can be labelled left and right, and the units can be changed on the fly",
     },
     {
-        imageSrc: "WorkoutLogger/WorkoutLoggerExercisesPage",
+        imageSrc: "WorkoutLogger/WorkoutLoggerExercisesPageLandscape",
+        smallScreenAltSrc: "WorkoutLogger/WorkoutLoggerExercisesPage",
         description:
             "Each account starts with a default set of exercises that can be edited, added to, and deleted from",
     },
     {
-        imageSrc: "WorkoutLogger/WorkoutLoggerExerciseCreation",
+        imageSrc: "WorkoutLogger/WorkoutLoggerExerciseCreationLandscape",
+        smallScreenAltSrc: "WorkoutLogger/WorkoutLoggerExerciseCreation",
         description: "Add new exercises, customized to your needs",
     },
 ];

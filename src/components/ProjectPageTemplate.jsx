@@ -1,10 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Button, Grid, Paper, Tooltip, Typography } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { ArrowBack, GitHub } from "@material-ui/icons";
-import Img from "react-image";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import breakpoints from "./styles/breakpoints";
@@ -12,10 +9,104 @@ import useMediaQuery from "../hooks/useMediaQuery";
 import CloudinaryImage from "./elements/CloudinaryImage";
 import { SectionTitle, SubsectionTitle } from "./styles/styledComponents";
 
-// Logos
-import ReactLogo from "../assets/logos/react.svg";
-import MaterialUILogo from "../assets/logos/material-ui.svg";
-import FirebaseLogo from "../assets/logos/firebase.svg";
+const PageWrapper = styled.main`
+    position: relative;
+`;
+
+const SectionContainer = styled.div`
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    ${(props) => props.styling};
+`;
+
+const Outline = keyframes`
+    to {
+        stroke-dashoffset: 0;
+    }
+`;
+
+const BackArrowWrapper = styled.span`
+    position: fixed;
+    top: 8vh;
+    left: 8vw;
+    z-index: 2;
+
+    @media (min-width: ${breakpoints.md}) {
+        top: 16vh;
+        left: 8vw;
+    }
+
+    & a {
+        color: #fff;
+    }
+
+    & svg {
+        stroke: var(--color-blue-light);
+        stroke-width: 0.75;
+        stroke-dasharray: 69px;
+        stroke-dashoffset: 69px;
+        transform: scale(1.5);
+    }
+
+    &:hover svg,
+    &:focus svg {
+        animation: ${Outline} 0.3s ease-out forwards;
+    }
+`;
+
+const BackgroundImageContainer = styled.div`
+    position: relative;
+    overflow: hidden;
+
+    &.carouselBackground {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5));
+    }
+`;
+
+const ProjectLinksRow = styled.div`
+    align-items: center;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+`;
+
+const ProjectLink = styled.a`
+    align-items: center;
+    border: none;
+    border-radius: 2px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    font-family: "Orbitron", sans-serif;
+    justify-content: center;
+    min-height: 60px;
+    min-width: 128px;
+    padding: 1rem;
+    text-decoration: none !important;
+    text-transform: uppercase;
+    transition: all 0.1s ease-in;
+
+    &:hover {
+        filter: brightness(115%);
+    }
+
+    &:focus,
+    &:active {
+        filter: brightness(85%);
+    }
+`;
+const SourceButton = styled(ProjectLink)`
+    background: linear-gradient(300deg, var(--color-blue-light) -9.08%, var(--color-blue-mid) 83.6%);
+    border: 2px solid var(--color-blue-light);
+`;
+
+const DemoButton = styled(ProjectLink)`
+    background: linear-gradient(300deg, var(--color-pink) -9.08%, var(--color-purple) 83.6%);
+    border: 2px solid var(--color-pink);
+`;
 
 const TextContainer = styled.div`
     font-family: "Jura", sans-serif;
@@ -27,118 +118,55 @@ const TextContainer = styled.div`
     width: clamp(250px, 80ch, 100%);
 `;
 
-const useStyles = makeStyles((theme) => ({
-    backgroundImageContainer: {
-        position: "relative",
-        overflow: "hidden",
-    },
+const TextBackground = styled.div`
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 10px;
+    margin: 30px;
 
-    closeDialogButton: {
-        display: "flex",
-        justifyContent: "flex-end",
-        paddingBottom: "10px",
-        width: "100%",
-    },
-    img: {
-        height: "50%",
-        width: "auto",
-    },
-    link: {
-        alignItems: "center",
-        color: "#fff",
-        display: "flex",
-        textDecoration: "none",
-        width: "100%",
-    },
-    linkRow: {
-        alignItems: "center",
-        color: "#fff",
-        display: "flex",
-        padding: "10px",
-        textDecoration: "none",
-    },
-    linkRow__leftLink: {
-        justifyContent: "flex-end",
-        paddingRight: "10px",
-    },
-    linkRow__rightLink: {
-        justifyContent: "flex-start",
-        paddingLeft: "10px",
-    },
-    listText: {
-        paddingTop: "10px",
-        paddingBottom: "10px",
-        paddingLeft: "20px",
-        paddingRight: "20px",
-    },
-    logoImg: {
-        height: "auto",
-        width: "80%",
-    },
-    logoRow: {
-        backgroundColor: "#fff",
-        paddingBottom: "20px",
-        paddingTop: "20px",
-    },
-    outsidePaperText: {
-        padding: "50px",
-    },
-    textPadding: {
-        padding: "20px",
-    },
-    textBackground: {
-        backgroundColor: `rgba(0,0,0,0.7)`,
-        color: "#fff",
-        padding: "10px",
-        marginBottom: "20px",
-        [theme.breakpoints.down("xs")]: {
-            margin: "30px",
-        },
-        [theme.breakpoints.up("sm")]: {
-            margin: "80px",
-        },
-    },
-    slideContainer: {
-        [theme.breakpoints.down("sm")]: {
-            margin: "0 auto",
-            width: "80%",
-        },
-    },
-    carouselBackground: {
-        backgroundImage: ["linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.5))"],
-    },
-    titleRow: {
-        alignItems: "center",
-        color: "#fff",
-        display: "flex",
-        justifyContent: "center",
-        padding: "30px",
-    },
-}));
+    @media (min-width: ${breakpoints.sm}) {
+        margin: 80px;
+        margin-bottom: 30px;
+    }
+`;
+
+const SlideContainer = styled.div`
+    @media (max-width: ${breakpoints.sm}) {
+        margin: 0 auto;
+        width: 80%;
+    }
+`;
 
 const ProjectPageTemplate = ({
     carouselBackgroundImage,
     carouselBackgroundImageSmallScreenAlt,
+    autoPlayCarousel = true,
     pageTitle,
     projectSourceLink = "",
     projectDemoLink = "",
     projectLiveLink = "",
     carouselImages = [],
     backgroundInfo,
+    backgroundAltTitle = "",
+    featuresAltTitle = "",
     featuresBackgroundImage,
     featuresBackgroundImageSmallScreenAlt,
     featuresInfo,
+    developmentAltTitle = "",
     developmentBackgroundImage,
     developmentBackgroundImageSmallScreenAlt,
-    developmentIcons,
     developmentInfo,
 }) => {
-    const classes = useStyles();
     const smallScreen = useMediaQuery(`(max-width: ${breakpoints.sm})`);
 
     return (
-        <>
-            <div className={`${classes.backgroundImageContainer} ${classes.carouselBackground}`}>
+        <PageWrapper>
+            <BackArrowWrapper>
+                <Link to='/'>
+                    <ArrowBack fontSize='large' />
+                </Link>
+            </BackArrowWrapper>
+            <BackgroundImageContainer className='carouselBackground'>
                 <CloudinaryImage
                     fileName={
                         carouselBackgroundImageSmallScreenAlt && smallScreen
@@ -147,69 +175,61 @@ const ProjectPageTemplate = ({
                     }
                     backgroundImage
                 />
-                <Grid container justify='center'>
-                    <Grid item xs={3} className={classes.titleRow}>
-                        <Link to='/' className={classes.link}>
-                            <ArrowBack />
-                        </Link>
-                    </Grid>
-                    <Grid item xs={6} className={classes.titleRow}>
-                        <SectionTitle element='h1'>{pageTitle}</SectionTitle>
-                    </Grid>
-                    <Grid item xs={3}></Grid>
-                    <Grid item xs={12} className={classes.linkRow}>
-                        <a
-                            href={projectDemoLink}
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            className={[classes.link, classes.linkRow__leftLink].join(" ")}
-                        >
-                            <Button variant='contained' style={{ minWidth: "123px" }}>
-                                Demo
-                            </Button>
-                        </a>
-                        <a
-                            href={projectSourceLink}
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            className={[classes.link, classes.linkRow__rightLink].join(" ")}
-                        >
-                            <Button variant='contained' style={{ minWidth: "123px" }}>
-                                <GitHub style={{ marginRight: "5px" }} />
-                                Source
-                            </Button>
-                        </a>
-                    </Grid>
-                    <Grid item xs={12} sm={10} md={9}>
-                        <Carousel
-                            //autoPlay
-                            interval={5000}
-                            transitionTime={500}
-                            infiniteLoop
-                            preventMovementUntilSwipeScrollTolerance
-                            swipeScrollTolerance={50}
-                            showStatus={false}
-                        >
-                            {carouselImages.map((imageObj, index) => (
-                                <div key={`carousel-image-${index}`} className={classes.slideContainer}>
+                <SectionContainer>
+                    <SectionTitle element='h1' styling={{ padding: "60px" }}>
+                        {pageTitle}
+                    </SectionTitle>
+                </SectionContainer>
+                <ProjectLinksRow>
+                    {projectDemoLink && (
+                        <DemoButton href={projectDemoLink} target='_blank' rel='noopener noreferrer'>
+                            Demo
+                        </DemoButton>
+                    )}
+                    {projectSourceLink && (
+                        <SourceButton href={projectSourceLink} target='_blank' rel='noopener noreferrer'>
+                            <GitHub style={{ marginRight: "5px" }} />
+                            Source
+                        </SourceButton>
+                    )}
+                </ProjectLinksRow>
+                <TextContainer>
+                    <Carousel
+                        autoPlay={autoPlayCarousel}
+                        interval={5000}
+                        transitionTime={500}
+                        infiniteLoop
+                        preventMovementUntilSwipeScrollTolerance
+                        swipeScrollTolerance={50}
+                        showStatus={false}
+                        showThumbs={false}
+                    >
+                        {carouselImages.map((imageObj, index) =>
+                            imageObj.slideComponent ? (
+                                <imageObj.slideComponent />
+                            ) : (
+                                <SlideContainer key={`carousel-image-${index}`}>
                                     <CloudinaryImage
-                                        fileName={`${imageObj.imageSrc}${smallScreen ? "" : "Landscape"}`}
-                                        className={classes.carouselImages}
+                                        fileName={
+                                            smallScreen && imageObj.smallScreenAltSrc
+                                                ? imageObj.smallScreenAltSrc
+                                                : imageObj.imageSrc
+                                        }
                                     />
                                     <p className='legend'>{imageObj.description}</p>
-                                </div>
-                            ))}
-                        </Carousel>
-                    </Grid>
-                </Grid>
-            </div>
-            <Grid container>
-                <Grid item xs={12}>
-                    <SubsectionTitle styling={{ color: "#000" }}>Background</SubsectionTitle>
-                    <TextContainer>{backgroundInfo}</TextContainer>
-                </Grid>
-            </Grid>
-            <div className={classes.backgroundImageContainer}>
+                                </SlideContainer>
+                            )
+                        )}
+                    </Carousel>
+                </TextContainer>
+            </BackgroundImageContainer>
+            <SectionContainer styling={{ backgroundColor: "#FAFAFA" }}>
+                <SubsectionTitle styling={{ color: "#000" }}>
+                    {backgroundAltTitle !== "" ? backgroundAltTitle : "Background"}
+                </SubsectionTitle>
+                <TextContainer>{backgroundInfo}</TextContainer>
+            </SectionContainer>
+            <BackgroundImageContainer>
                 <CloudinaryImage
                     fileName={
                         featuresBackgroundImageSmallScreenAlt && smallScreen
@@ -218,16 +238,14 @@ const ProjectPageTemplate = ({
                     }
                     backgroundImage
                 />
-                <Grid container>
-                    <Grid item xs={12}>
-                        <Paper className={classes.textBackground}>
-                            <SubsectionTitle>Features</SubsectionTitle>
-                            <TextContainer>{featuresInfo}</TextContainer>
-                        </Paper>
-                    </Grid>
-                </Grid>
-            </div>
-            <div className={classes.backgroundImageContainer}>
+                <SectionContainer>
+                    <TextBackground>
+                        <SubsectionTitle>{featuresAltTitle !== "" ? featuresAltTitle : "Features"}</SubsectionTitle>
+                        <TextContainer>{featuresInfo}</TextContainer>
+                    </TextBackground>
+                </SectionContainer>
+            </BackgroundImageContainer>
+            <BackgroundImageContainer>
                 <CloudinaryImage
                     fileName={
                         developmentBackgroundImageSmallScreenAlt && smallScreen
@@ -236,16 +254,16 @@ const ProjectPageTemplate = ({
                     }
                     backgroundImage
                 />
-                <Grid container>
-                    <Grid item xs={12}>
-                        <Paper className={classes.textBackground}>
-                            <SubsectionTitle>Development</SubsectionTitle>
-                            <TextContainer>{developmentInfo}</TextContainer>
-                        </Paper>
-                    </Grid>
-                </Grid>
-            </div>
-        </>
+                <SectionContainer>
+                    <TextBackground>
+                        <SubsectionTitle>
+                            {developmentAltTitle !== "" ? developmentAltTitle : "Development"}
+                        </SubsectionTitle>
+                        <TextContainer>{developmentInfo}</TextContainer>
+                    </TextBackground>
+                </SectionContainer>
+            </BackgroundImageContainer>
+        </PageWrapper>
     );
 };
 

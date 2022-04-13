@@ -153,7 +153,10 @@ const HomePage = () => {
                 <NavBar />
             </FadeInText>
             {/* Hero unit */}
-            <HeroBackground backgroundImage={SouthernOntario} backgroundSVG={SouthernOntarioAnimatedSVG}>
+            <HeroBackground
+                backgroundImage='https://res.cloudinary.com/marsh/image/upload/f_auto,q_auto/v1649329689/portfolio/Home/SouthernOntario.png'
+                backgroundSVG={SouthernOntarioAnimatedSVG}
+            >
                 <HeaderContainer>
                     <HeaderTitle />
                     <HeaderSubtitleSection>

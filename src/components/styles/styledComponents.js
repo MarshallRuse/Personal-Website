@@ -68,6 +68,8 @@ export const SubSubsectionTitle = ({ children, element = "h3", styling }) => (
 
 export const NavLink = styled.a`
     color: ${(props) => (props.color ? props.color : "#fff")};
+    font-family: "Jura", sans-serif;
+    font-weight: 600;
     display: inline-block;
     position: relative;
     text-decoration: none;

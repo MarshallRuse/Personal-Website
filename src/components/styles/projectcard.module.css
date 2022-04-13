@@ -115,7 +115,8 @@
     filter: brightness(115%);
 }
 
-.btnCardAction:active {
+.btnCardAction:active,
+.btnCardAction:focus {
     filter: brightness(85%);
 }
 

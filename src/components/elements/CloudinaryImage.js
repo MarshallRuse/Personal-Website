@@ -12,8 +12,8 @@ const BackgroundImageStyling = css`
 `;
 
 const StyledImage = styled(AdvancedImage)`
-    ${(props) => props.backgroundImage && BackgroundImageStyling}
-    ${(props) => props.styling};
+    ${(props) => props.$backgroundImage && BackgroundImageStyling};
+    ${(props) => props.$styling};
 `;
 
 const CloudinaryImage = ({ fileName, backgroundImage, className, styling, placeholderType = "pixelate" }) => {
@@ -33,9 +33,9 @@ const CloudinaryImage = ({ fileName, backgroundImage, className, styling, placeh
         <StyledImage
             cldImg={myImage}
             plugins={[lazyload(), responsive({ steps: 200 }), placeholder({ mode: placeholderType })]}
-            backgroundImage={backgroundImage}
+            $backgroundImage={backgroundImage}
             className={className}
-            styling={styling}
+            $styling={styling}
         />
     );
 };
