@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import breakpoints from "./breakpoints";
 
 const GenericSectionTitle = styled.p`
@@ -131,4 +132,15 @@ export const IconBox = styled.div`
         flex-grow: 0;
         max-width: ${(props) => (props.numPerRowLg ? `${100 / props.numPerRowLg}%` : "12.5%")};
     }
+`;
+
+export const TextContainer = styled.div`
+    font-family: "Jura", sans-serif;
+    font-size: 1.2em;
+    font-weight: 600;
+    line-height: 2;
+    margin: 30px auto;
+    padding: 0 20px;
+    width: clamp(250px, 80ch, 100%);
+    ${(props) => props.$styling}
 `;

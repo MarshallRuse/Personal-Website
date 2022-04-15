@@ -7,7 +7,7 @@ import { Carousel } from "react-responsive-carousel";
 import breakpoints from "./styles/breakpoints";
 import useMediaQuery from "../hooks/useMediaQuery";
 import CloudinaryImage from "./elements/CloudinaryImage";
-import { SectionTitle, SubsectionTitle } from "./styles/styledComponents";
+import { SectionTitle, SubsectionTitle, TextContainer } from "./styles/styledComponents";
 
 const PageWrapper = styled.main`
     position: relative;
@@ -106,16 +106,6 @@ const SourceButton = styled(ProjectLink)`
 const DemoButton = styled(ProjectLink)`
     background: linear-gradient(300deg, var(--color-pink) -9.08%, var(--color-purple) 83.6%);
     border: 2px solid var(--color-pink);
-`;
-
-const TextContainer = styled.div`
-    font-family: "Jura", sans-serif;
-    font-size: 1.2em;
-    font-weight: 600;
-    line-height: 2;
-    margin: 30px auto;
-    padding: 0 20px;
-    width: clamp(250px, 80ch, 100%);
 `;
 
 const TextBackground = styled.div`

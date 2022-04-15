@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Container, Grid, Paper, Typography } from "@material-ui/core";
+import { Button, Container, Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import styled from "styled-components";
 import { Email, GitHub, LinkedIn } from "@material-ui/icons";
@@ -21,10 +21,10 @@ import {
 } from "../assets/logos/logoIcons.js";
 
 // Images
-import SouthernOntario from "../assets/images/HomePage/SouthernOntario.png";
 import SouthernOntarioAnimatedSVG from "../assets/images/HomePage/svg/SouthernOntarioAnimated.svg";
 
 // Sections
+import AboutMeSection from "./AboutMeSection.js";
 import BlogSection from "./BlogSection";
 import SkillsSection from "./SkillsSection";
 
@@ -70,27 +70,18 @@ const HeroButtons = styled.div`
     margin: 64px;
 `;
 
+const ProjectBox = styled.div`
+    display: flex;
+    justify-content: center;
+`;
+
 const useStyles = makeStyles((theme) => ({
     aboutMeParagraph: {
         color: "#4e4e4e",
         padding: "10px",
     },
-    buttonBaseRoot: {
-        alignItems: "flex-start",
-        boxShadow: "none",
-        display: "flex",
-        flexGrow: 1,
-    },
-    captionText: {
-        color: "#7d7d7d",
-        paddingBottom: "10px",
-    },
-
     heroButtons: {
         marginTop: theme.spacing(4),
-    },
-    icon: {
-        marginRight: theme.spacing(2),
     },
     inverseButton: {
         color: theme.palette.primary.main,
@@ -100,27 +91,6 @@ const useStyles = makeStyles((theme) => ({
         color: "inherit",
         textDecoration: "none",
     },
-    navLink: {
-        textDecoration: "none",
-        color: "#fff",
-        transition: "color 0.4s",
-        "&:hover": {
-            color: "#fff",
-        },
-    },
-    paper: {
-        marginBottom: "20px",
-        [theme.breakpoints.down("xs")]: {
-            padding: "20px",
-        },
-        [theme.breakpoints.up("sm")]: {
-            padding: "30px",
-        },
-    },
-    paragraphHeader: {
-        color: "#7d7d7d",
-        padding: "20px",
-    },
     projectBox: {
         display: "flex",
         justifyContent: "center",
@@ -128,11 +98,6 @@ const useStyles = makeStyles((theme) => ({
     projectsSection: {
         minHeight: "100vh",
         position: "relative",
-    },
-    sectionHeader: {
-        fontFamily: "'Orbitron', sans-serif",
-        paddingTop: "1em",
-        paddingBottom: "2em",
     },
     sectionSpacing: {
         paddingTop: theme.spacing(8),
@@ -290,72 +255,23 @@ const HomePage = () => {
                 </Container>
             </div>
             <BlogSection />
-            <Container id='about-me-section' className={classes.sectionSpacing} maxWidth='md'>
-                <Typography id='skills-section' variant='h3' align='center' className={classes.sectionHeader}>
-                    About Me
-                </Typography>
-                <Paper className={classes.paper}>
-                    <Typography variant='h5' className={classes.paragraphHeader}>
-                        Education
-                    </Typography>
-                    <Typography variant='body1' className={classes.aboutMeParagraph}>
-                        &nbsp;&nbsp;&nbsp;&nbsp;I attended Queen's University in Kingston, Ontario from 2012 to 2019.
-                        <br />
-                        <br />
-                        &nbsp;&nbsp;&nbsp;&nbsp;In the first four years I obtained a BScH in Life Sciences, with my
-                        primary focus being on neurology. In the last year of that degree I took a couple of
-                        introductory computer science courses, and ended up falling in love with the process of
-                        programming. None of the courses I'd taken previously would have me focused for hours and days,
-                        the time slipping by unnoticed as I became enthralled by writing and piecing together functions
-                        to build small programs. I had studied the mechanisms and functions of numerous
-                        neurotransmitters, but learning about them hadn't quite given me the rush of dopamine that
-                        squashing that last bug and having a working final product did. So, in my last year of that
-                        degree, I made the momentous decision to pursue programming as my passion in life.
-                        <br />
-                        <br /> &nbsp;&nbsp;&nbsp;&nbsp;Queen's offered an Honours degree in Computing with a Biomedical
-                        Computing specialization. I saw this as a great oppurtunity to combine my previous love with my
-                        new passion, and to contextualize and reinforce my new learning with past domain-knowledge. For
-                        the next three years, I took primarily computer science courses focused on algorithms,
-                        data-structures, and programming paradigms, as well as a few with cool life science inflections
-                        (Bioinformatics and Computer-Integrated Surgery come to mind). In 2019, I graduated with a BCmpH
-                        in Biomedical Computing.
-                    </Typography>
-                    <Typography variant='h5' className={classes.paragraphHeader}>
-                        Why am I doing Web and Mobile development?
-                    </Typography>
-                    <Typography variant='body1' className={classes.aboutMeParagraph}>
-                        &nbsp;&nbsp;&nbsp;&nbsp;In my opinion, the internet is one of the most marvelous and powerful
-                        inventions in history. It's probably not a controversial statement to say that the growing
-                        ubiquity and prevasiveness of the internet finds us at the dawn of a new era of powerful global
-                        connectivity. My favourite aspects of studying neurology was learning how the various
-                        brain-systems connected and interacted to produce sensory perception, motor control, or animal
-                        behaviour. The internet is analogous to a global brain, with individual humans as the neurons
-                        trying to talk to each other. Web and, ever-increasingly, mobile applications are the primary
-                        interfaces that each of us use to harness the amazing and powerful infrastructures of
-                        communication humanity has developed. I want to be a builder of those interfaces.
-                    </Typography>
-                </Paper>
-            </Container>
+            <AboutMeSection />
             <Container id='contact-section' className={classes.sectionSpacing} maxWidth='md'>
-                <Typography id='skills-section' variant='h3' align='center' className={classes.sectionHeader}>
-                    Contact
-                </Typography>
-                <Typography variant='h6' align='center'>
-                    <NavLink
-                        href='mailto:ruse.marshall@gmail.com'
-                        color='var(--color-blue-mid)'
-                        style={{
-                            display: "flex",
-                            gap: "10px",
-                            alignItems: "center",
-                            margin: "0 auto",
-                            width: "max-content",
-                        }}
-                    >
-                        <Email />
-                        ruse.marshall@gmail.com
-                    </NavLink>
-                </Typography>
+                <SectionTitle element='h3'>Contact</SectionTitle>
+                <NavLink
+                    href='mailto:ruse.marshall@gmail.com'
+                    color='var(--color-blue-mid)'
+                    style={{
+                        display: "flex",
+                        gap: "10px",
+                        alignItems: "center",
+                        margin: "0 auto",
+                        width: "max-content",
+                    }}
+                >
+                    <Email />
+                    ruse.marshall@gmail.com
+                </NavLink>
             </Container>
         </main>
     );

@@ -201,10 +201,17 @@ const BlogPostSubsection = (props) => {
                 </DetailValue>
             </DetailLine>
             <DetailLine style={{ opacity: elementVisibility.bannerImage ? 1 : 0, justifyContent: "center" }}>
-                <CloudinaryImage
-                    fileName={bannerImage.src}
-                    styling={{ border: "6px double var(--color-yellow)", width: "clamp(300px, 70%, 1250px)" }}
-                />
+                {bannerImage.directSrc ? (
+                    <img
+                        src={bannerImage.directSrc}
+                        style={{ border: "6px double var(--color-yellow)", width: "clamp(300px, 70%, 1250px)" }}
+                    />
+                ) : (
+                    <CloudinaryImage
+                        fileName={bannerImage.src}
+                        styling={{ border: "6px double var(--color-yellow)", width: "clamp(300px, 70%, 1250px)" }}
+                    />
+                )}
             </DetailLine>
         </Subsection>
     );
@@ -216,7 +223,11 @@ const posts = [
         url: "https://medium.com/@ruse.marshall/creating-a-glitching-typing-animation-in-react-1317c251fd0f",
         date: "2022-03-16",
         keywords: ["React", "JavaScript", "Canvas", "Animation", "Tutorial"],
-        bannerImage: { src: "Home/Banner_GlitchingTypingAnimation.gif", alt: "A banner gif for the tutorial" },
+        bannerImage: {
+            directSrc:
+                "https://res.cloudinary.com/marsh/image/upload/v1649330135/portfolio/Home/Banner_GlitchingTypingAnimation.gif",
+            alt: "A banner gif for the tutorial",
+        },
     },
     {
         title: "Converting a Vanilla JS Canvas Animation to React",
@@ -224,7 +235,8 @@ const posts = [
         date: "2022-03-03",
         keywords: ["React", "Animation", "Web Development", "Styled Components", "Front End Development"],
         bannerImage: {
-            src: "Home/Banner_MatrixRainfallReact.gif",
+            directSrc:
+                "https://res.cloudinary.com/marsh/image/upload/v1649334867/portfolio/Home/Banner_MatrixRainfallReact.gif",
             alt: "A banner gif for the tutorial",
         },
     },
@@ -257,6 +269,7 @@ const BlogSection = () => {
             </GlitchingTypingText>
             {posts.map((post) => (
                 <BlogPostSubsection
+                    key={post.title}
                     title={post.title}
                     url={post.url}
                     date={post.date}
