@@ -4,7 +4,18 @@ import styles from "../styles/projectcard.module.css";
 import CloudinaryImage from "./CloudinaryImage";
 
 const ProjectCard = (props) => {
-    const { cardImage, cardTitle, cardSubtitle, projectPageLink, demoLink, liveLink, sourceLink, stackIcons } = props;
+    const {
+        cardImage,
+        cardTitle,
+        cardTitleStyling = {},
+        cardSubtitle,
+        cardSubtitleStyling = {},
+        projectPageLink,
+        demoLink,
+        liveLink,
+        sourceLink,
+        stackIcons,
+    } = props;
     const history = useHistory();
     const goToPage = () => {
         history.push(projectPageLink);
@@ -32,8 +43,12 @@ const ProjectCard = (props) => {
                 </div>
             </div>
             <div className={styles.cardHeader}>
-                <div className={styles.cardTitle}>{cardTitle}</div>
-                <div className={styles.cardSubtitle}>{cardSubtitle}</div>
+                <div className={styles.cardTitle} style={cardTitleStyling}>
+                    {cardTitle}
+                </div>
+                <div className={styles.cardSubtitle} style={cardSubtitleStyling}>
+                    {cardSubtitle}
+                </div>
             </div>
             {(demoLink || liveLink) && (
                 <a

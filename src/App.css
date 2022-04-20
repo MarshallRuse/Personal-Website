@@ -38,6 +38,8 @@
     --color-matplotlib-raw: 207, 205, 217;
     --color-mongodb: rgba(67, 153, 52);
     --color-mongodb-raw: 75, 153, 52;
+    --color-mysql: rgb(0, 97, 138);
+    --color-mysql-raw: 0, 97, 138;
     --color-nodejs: rgb(121, 205, 41);
     --color-nodejs-raw: 121, 205, 41;
     --color-numpy: rgb(76, 171, 207);

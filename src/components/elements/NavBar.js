@@ -38,11 +38,21 @@ const NavBar = () => {
 
     return (
         <NavList style={{ backgroundColor: bg }}>
-            <NavLink href='#skills-section'>Skills</NavLink>
-            <NavLink href='#projects-section'>Projects</NavLink>
-            <NavLink href='#blog-section'>Blog</NavLink>
-            <NavLink href='#about-me-section'>About Me</NavLink>
-            <NavLink href='#contact-section'>Contact</NavLink>
+            <NavLink href='#skills-section' color='#fff'>
+                Skills
+            </NavLink>
+            <NavLink href='#projects-section' color='#fff'>
+                Projects
+            </NavLink>
+            <NavLink href='#blog-section' color='#fff'>
+                Blog
+            </NavLink>
+            <NavLink href='#about-me-section' color='#fff'>
+                About Me
+            </NavLink>
+            <NavLink href='#contact-section' color='#fff'>
+                Contact
+            </NavLink>
         </NavList>
     );
 };

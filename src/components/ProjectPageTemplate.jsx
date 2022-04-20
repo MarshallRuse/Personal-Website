@@ -44,6 +44,7 @@ const BackArrowWrapper = styled.span`
     }
 
     & svg {
+        filter: drop-shadow(2px 4px 3px rgba(0, 0, 0, 0.4));
         stroke: var(--color-blue-light);
         stroke-width: 0.75;
         stroke-dasharray: 69px;
@@ -53,6 +54,7 @@ const BackArrowWrapper = styled.span`
 
     &:hover svg,
     &:focus svg {
+        filter: drop-shadow(2px 4px 3px rgba(var(--color-blue-light-raw), 0.5));
         animation: ${Outline} 0.3s ease-out forwards;
     }
 `;
@@ -62,7 +64,7 @@ const BackgroundImageContainer = styled.div`
     overflow: hidden;
 
     &.carouselBackground {
-        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5));
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4));
     }
 `;
 
@@ -96,6 +98,15 @@ const ProjectLink = styled.a`
     &:focus,
     &:active {
         filter: brightness(85%);
+    }
+
+    background: ${(props) => props.$disabled && "linear-gradient(45deg, #7B7B7B, #BEBEBE) !important"};
+    border: ${(props) => props.$disabled && "1px solid #808080 !important"};
+    pointer-events: ${(props) => props.$disabled && "none"};
+
+    span.private {
+        font-size: 0.7em;
+        margin-left: 5px;
     }
 `;
 const SourceButton = styled(ProjectLink)`
@@ -166,20 +177,35 @@ const ProjectPageTemplate = ({
                     backgroundImage
                 />
                 <SectionContainer>
-                    <SectionTitle element='h1' styling={{ padding: "60px" }}>
-                        {pageTitle}
-                    </SectionTitle>
+                    <TextContainer>
+                        <SectionTitle
+                            element='h1'
+                            styling={{ padding: "60px", textShadow: "2px 2px var(--color-pink)" }}
+                        >
+                            {pageTitle}
+                        </SectionTitle>
+                    </TextContainer>
                 </SectionContainer>
                 <ProjectLinksRow>
                     {projectDemoLink && (
-                        <DemoButton href={projectDemoLink} target='_blank' rel='noopener noreferrer'>
+                        <DemoButton
+                            $disabled={!projectDemoLink}
+                            href={projectDemoLink}
+                            target='_blank'
+                            rel='noopener noreferrer'
+                        >
                             Demo
                         </DemoButton>
                     )}
                     {projectSourceLink && (
-                        <SourceButton href={projectSourceLink} target='_blank' rel='noopener noreferrer'>
+                        <SourceButton
+                            $disabled={!projectSourceLink || projectSourceLink === "private"}
+                            href={projectSourceLink}
+                            target='_blank'
+                            rel='noopener noreferrer'
+                        >
                             <GitHub style={{ marginRight: "5px" }} />
-                            Source
+                            Source{projectSourceLink === "private" && <span className='private'> (Private)</span>}
                         </SourceButton>
                     )}
                 </ProjectLinksRow>

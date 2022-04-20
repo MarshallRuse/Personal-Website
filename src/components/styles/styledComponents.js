@@ -68,7 +68,7 @@ export const SubSubsectionTitle = ({ children, element = "h3", styling }) => (
 );
 
 export const NavLink = styled.a`
-    color: ${(props) => (props.color ? props.color : "#fff")};
+    color: ${(props) => (props.color ? props.color : "var(--color-yellow)")};
     font-family: "Jura", sans-serif;
     font-weight: 600;
     display: inline-block;
@@ -97,6 +97,7 @@ export const NavLink = styled.a`
         transform: scaleX(1);
         transform-origin: bottom left;
     }
+    ${(props) => props.$styling}
 `;
 
 export const IconRow = styled.div`
@@ -107,6 +108,7 @@ export const IconRow = styled.div`
     margin: 1.5rem;
     margin-bottom: 4rem;
     row-gap: 2rem;
+    ${(props) => props.$styling}
 `;
 
 export const IconBox = styled.div`
@@ -143,4 +145,8 @@ export const TextContainer = styled.div`
     padding: 0 20px;
     width: clamp(250px, 80ch, 100%);
     ${(props) => props.$styling}
+
+    @media (min-width: ${breakpoints.sm}) {
+        padding: 0 40px;
+    }
 `;

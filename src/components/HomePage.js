@@ -12,6 +12,7 @@ import {
     MaterialUILogo,
     MatplotlibLogo,
     MongoDBLogo,
+    MySQLLogo,
     NodejsLogo,
     NumpyLogo,
     PythonLogo,
@@ -174,6 +175,38 @@ const HomePage = () => {
                     <Grid container spacing={4} justify='space-apart'>
                         <Grid item xs={12} md={6} lg={4} className={classes.projectBox}>
                             <ProjectCard
+                                cardImage='SnazzyStock/snazzyStockCardImage'
+                                cardTitle='Snazzy Stock'
+                                cardSubtitle='SnazzyStones inventory management system'
+                                projectPageLink='projects/SnazzyStock'
+                                sourceLink=''
+                                stackIcons={[
+                                    { class: "react", icon: ReactLogo },
+                                    { class: "materialui", icon: MaterialUILogo },
+                                    { class: "express", icon: ExpressLogo },
+                                    { class: "nodejs", icon: NodejsLogo },
+                                    { class: "mysql", icon: MySQLLogo },
+                                ]}
+                            />
+                        </Grid>
+                        <Grid item xs={12} md={6} lg={4} className={classes.projectBox}>
+                            <ProjectCard
+                                cardImage='RotationCoordinatorReportFormatter/teamOfDoctors'
+                                cardTitle='Rotation Coordinator Report Formatter'
+                                cardTitleStyling={{ fontSize: "28px" }}
+                                cardSubtitle='Group and filter rotation residents'
+                                cardSubtitleStyling={{ fontSize: "22px" }}
+                                projectPageLink='projects/RotationCoordinatorReportFormatter'
+                                demoLink='https://rotation-coordinator-report-formatter.netlify.app'
+                                sourceLink='https://github.com/MarshallRuse/rotation-coordinator-data-formatter'
+                                stackIcons={[
+                                    { class: "react", icon: ReactLogo },
+                                    { class: "materialui", icon: MaterialUILogo },
+                                ]}
+                            />
+                        </Grid>
+                        <Grid item xs={12} md={6} lg={4} className={classes.projectBox}>
+                            <ProjectCard
                                 cardImage='Home/girl-barbell-curls'
                                 cardTitle='Workout Logger'
                                 cardSubtitle='Record reps, sets, and weights'
@@ -242,6 +275,7 @@ const HomePage = () => {
                             <ProjectCard
                                 cardImage='Home/PersonalWebsitePortrait'
                                 cardTitle='marshallruse.com'
+                                cardTitleStyling={{ fontSize: "32px" }}
                                 cardSubtitle='This website!'
                                 sourceLink='https://github.com/MarshallRuse/Personal-Website'
                                 stackIcons={[
@@ -256,23 +290,6 @@ const HomePage = () => {
             </div>
             <BlogSection />
             <AboutMeSection />
-            <Container id='contact-section' className={classes.sectionSpacing} maxWidth='md'>
-                <SectionTitle element='h3'>Contact</SectionTitle>
-                <NavLink
-                    href='mailto:ruse.marshall@gmail.com'
-                    color='var(--color-blue-mid)'
-                    style={{
-                        display: "flex",
-                        gap: "10px",
-                        alignItems: "center",
-                        margin: "0 auto",
-                        width: "max-content",
-                    }}
-                >
-                    <Email />
-                    ruse.marshall@gmail.com
-                </NavLink>
-            </Container>
         </main>
     );
 };

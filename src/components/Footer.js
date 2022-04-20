@@ -1,48 +1,30 @@
-import React from 'react';
-import {
-    Link, 
-    Typography
-} from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles'; 
+import React from "react";
+import styled from "styled-components";
+import { NavLink } from "./styles/styledComponents";
 
-const useStyles = makeStyles(theme => ({
-    footer: {
-        backgroundColor: theme.palette.background.paper,
-        padding: theme.spacing(6),
-    },
-    link: {
-        color: 'inherit',
-        textDecoration: 'none',
-    },
-}));
+const StyledFooter = styled.footer`
+    background-color: var(--color-blue-dark);
+    color: #fff;
+    font-family: "Jura", sans-serif;
+    padding: 4rem;
+    text-align: center;
+`;
 
 const Footer = () => {
-
-    const classes = useStyles();
-
-    const Copyright = () => {
-        return (
-          <Typography variant="body2" color="textSecondary" align="center">
-            {'Copyright © '}
-            <a 
-                href='https://www.linkedin.com/in/marshall-ruse/' 
-                target='_blank'
-                rel="noopener noreferrer"
-                className={classes.link}
-            >
-              Marshall Ruse &nbsp;
-            </a>
-            {new Date().getFullYear()}
-            {'.'}
-          </Typography>
-        );
-      }
-
     return (
-        <footer className={classes.footer}>
-            <Copyright />
-        </footer>
+        <StyledFooter>
+            Copyright ©
+            <NavLink
+                href='https://www.linkedin.com/in/marshall-ruse/'
+                target='_blank'
+                rel='noopener noreferrer'
+                style={{ margin: "0 5px" }}
+            >
+                Marshall Ruse
+            </NavLink>
+            {new Date().getFullYear()}.
+        </StyledFooter>
     );
-}
+};
 
 export default Footer;
