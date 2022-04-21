@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 // import { withStyles } from '@material-ui/styles';
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from "styled-components";
 
 const bounceInFwd = keyframes`
         0% {
@@ -26,7 +26,7 @@ const bounceInFwd = keyframes`
             transform: scale(0.84);
             animation-timing-function: ease-in;
         }
-        89% 
+        89% {
             transform: scale(1);
             animation-timing-function: ease-out;
         }
@@ -40,20 +40,15 @@ const bounceInFwd = keyframes`
         }
 `;
 
-
 const StyledDiv = styled.div`
-    animation: ${bounceInFwd} 1.1s cubic-bezier(0.950, 0.050, 0.795, 0.035) ${props => props.animationDelay} both;
+    animation: ${bounceInFwd} 1.1s cubic-bezier(0.95, 0.05, 0.795, 0.035) ${(props) => props.animationDelay} both;
     width: 100%;
 `;
 
-
 const BounceInForwardElement = (props) => (
     <>
-        <StyledDiv animationDelay={props.animationDelay}>
-            {props.children}
-        </StyledDiv>
+        <StyledDiv animationDelay={props.animationDelay}>{props.children}</StyledDiv>
     </>
 );
-
 
 export default BounceInForwardElement;

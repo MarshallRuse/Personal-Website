@@ -1,8 +1,7 @@
 import React from "react";
-import { Button, Container, Grid } from "@material-ui/core";
+import { Container, Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import styled from "styled-components";
-import { Email, GitHub, LinkedIn } from "@material-ui/icons";
 
 // Logos
 import {
@@ -32,11 +31,10 @@ import SkillsSection from "./SkillsSection";
 // Elements
 import HeaderSubtitle from "./elements/HeaderSubtitle";
 import NavBar from "./elements/NavBar";
-import { NavLink, SectionTitle } from "./styles/styledComponents";
+import { SectionTitle } from "./styles/styledComponents";
 import HeroBackground from "./elements/HeroBackground";
 import HeaderTitle from "./elements/HeaderTitle";
 import FadeInText from "./elements/FadeInText";
-import BounceInForwardElement from "./elements/BounceInForwardElement";
 import MatrixBG from "./elements/MatrixBG";
 import ProjectCard from "./elements/ProjectCard";
 
@@ -65,29 +63,7 @@ const HeaderSubtitleSection = styled.div`
     }
 `;
 
-const HeroButtons = styled.div`
-    justify-self: flex-end;
-    flex: 0 0 0%;
-    margin: 64px;
-`;
-
-const ProjectBox = styled.div`
-    display: flex;
-    justify-content: center;
-`;
-
 const useStyles = makeStyles((theme) => ({
-    aboutMeParagraph: {
-        color: "#4e4e4e",
-        padding: "10px",
-    },
-    heroButtons: {
-        marginTop: theme.spacing(4),
-    },
-    inverseButton: {
-        color: theme.palette.primary.main,
-        backgroundColor: "#fff",
-    },
     link: {
         color: "inherit",
         textDecoration: "none",
@@ -112,59 +88,21 @@ const HomePage = () => {
     return (
         <main style={{ backgroundColor: "#000" }}>
             <FadeInText
-                animationDelay={"6.5s"}
+                animationDelay={"3.5s"}
                 animationDuration={"2s"}
                 styling={{ position: "fixed", width: "100%", zIndex: 3 }}
             >
                 <NavBar />
             </FadeInText>
             {/* Hero unit */}
-            <HeroBackground
-                backgroundImage='https://res.cloudinary.com/marsh/image/upload/f_auto,q_auto/v1649329689/portfolio/Home/SouthernOntario.png'
-                backgroundSVG={SouthernOntarioAnimatedSVG}
-            >
+            <HeroBackground>
                 <HeaderContainer>
                     <HeaderTitle />
                     <HeaderSubtitleSection>
-                        <FadeInText animationDelay={"6.5s"} animationDuration={"2s"}>
+                        <FadeInText animationDelay={"3.5s"} animationDuration={"2s"}>
                             <HeaderSubtitle />
                         </FadeInText>
                     </HeaderSubtitleSection>
-
-                    <HeroButtons className='heroButtons'>
-                        <Grid container spacing={2} justify='center'>
-                            <Grid item>
-                                <BounceInForwardElement animationDelay={"7s"}>
-                                    <a
-                                        href='https://github.com/MarshallRuse'
-                                        target='_blank'
-                                        rel='noopener noreferrer'
-                                        className={classes.link}
-                                    >
-                                        <Button variant='contained' color='primary'>
-                                            <GitHub style={{ marginRight: "5px" }} />
-                                            GitHub
-                                        </Button>
-                                    </a>
-                                </BounceInForwardElement>
-                            </Grid>
-                            <Grid item>
-                                <BounceInForwardElement animationDelay={"7.2s"}>
-                                    <a
-                                        href='https://www.linkedin.com/in/marshall-ruse/'
-                                        target='_blank'
-                                        rel='noopener noreferrer'
-                                        className={classes.link}
-                                    >
-                                        <Button variant='contained' className={classes.inverseButton}>
-                                            <LinkedIn style={{ marginRight: "5px" }} />
-                                            LinkedIn
-                                        </Button>
-                                    </a>
-                                </BounceInForwardElement>
-                            </Grid>
-                        </Grid>
-                    </HeroButtons>
                 </HeaderContainer>
             </HeroBackground>
             <SkillsSection />

@@ -80,11 +80,6 @@ const DetailLink = styled.a`
     }
 `;
 
-const DetailBannerImage = styled.img`
-    border: 6px double var(--color-yellow);
-    width: clamp(300px, 70%, 1250px);
-`;
-
 const BlogPostSubsection = (props) => {
     const { ref, inView, entry } = useInView({
         /* Optional options */
@@ -105,12 +100,12 @@ const BlogPostSubsection = (props) => {
     });
     const [titleTypingDone, setTitleTypingDone] = useState(false);
 
-    const titleTypingDelay = 2000;
-    const titleTypingDuration = 1000;
-    const titleEnterDelay = 1000;
+    const titleTypingDelay = 1000;
+    const titleTypingDuration = 500;
+    const titleEnterDelay = 500;
     const detailsSectionDisplayDelay = titleTypingDelay + titleTypingDuration + titleEnterDelay;
-    const detailDelay = 250;
-    const bannerLoadingDuration = 500;
+    const detailDelay = 125;
+    const bannerLoadingDuration = 2500;
     const bannerImageDelay =
         detailsSectionDisplayDelay +
         detailDelay * Object.keys(elementVisibility.details).length +
